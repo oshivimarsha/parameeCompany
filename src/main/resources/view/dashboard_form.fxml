@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="916.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.parameeIceCream.controller.DashboardFormController">
+   <children>
+      <AnchorPane layoutX="27.0" layoutY="160.0" prefHeight="200.0" prefWidth="1223.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+         <effect>
+            <Shadow height="67.7" radius="32.0525" width="62.51">
+               <color>
+                  <Color red="0.9078947305679321" green="0.8784722089767456" blue="0.8784722089767456" />
+               </color>
+            </Shadow>
+         </effect>
+         <children>
+            <ScrollPane prefHeight="200.0" prefWidth="1256.0" styleClass="shadow" stylesheets="@../css/pane.css">
+               <effect>
+                  <Shadow />
+               </effect>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <Pane id="box" layoutX="51.0" layoutY="179.0" prefHeight="163.0" prefWidth="288.0" style="-fx-background-color: #fc3468;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+         <children>
+            <Label layoutX="35.0" layoutY="14.0" text="Customer Count" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCustomerCount" layoutX="185.0" layoutY="67.0" text="10" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="94.0" fitWidth="108.0" layoutX="35.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/customercount.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="359.0" layoutY="178.0" prefHeight="163.0" prefWidth="288.0" style="-fx-background-color: #fc3468;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+         <children>
+            <Label layoutX="158.0" layoutY="14.0" text="Order" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOrderCount" layoutX="172.0" layoutY="68.0" text="20" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="94.0" fitWidth="108.0" layoutX="26.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/oorder.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="667.0" layoutY="178.0" prefHeight="163.0" prefWidth="288.0" style="-fx-background-color: #fc3468;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+         <children>
+            <Label layoutX="22.0" layoutY="14.0" text="Employee Count" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmployeeCount" layoutX="191.0" layoutY="67.0" text="15" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="94.0" fitWidth="108.0" layoutX="40.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/customercount.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <AnchorPane prefHeight="73.0" prefWidth="1300.0" style="-fx-background-color: #fc3468;">
+         <children>
+            <Label layoutX="304.0" layoutY="13.0" text="Welcome To Paramee Company" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="975.0" layoutY="178.0" prefHeight="163.0" prefWidth="288.0" style="-fx-background-color: #fc3468;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+         <children>
+            <Label layoutX="167.0" layoutY="14.0" text="Income" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIncomeCount" layoutX="191.0" layoutY="71.0" text="15" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="94.0" fitWidth="108.0" layoutX="39.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/income.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <VBox layoutX="28.0" layoutY="401.0" prefHeight="484.0" prefWidth="479.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+         <children>
+            <Label prefHeight="47.0" prefWidth="479.0" style="-fx-background-color: white; -fx-background-radius: 40;" text="                Weekly Amount" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Serif Bold" size="23.0" />
+               </font>
+            </Label>
+            <LineChart fx:id="lineChart">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </VBox>
+      <VBox layoutX="538.0" layoutY="398.0" prefHeight="484.0" prefWidth="735.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+         <children>
+            <Label prefHeight="53.0" prefWidth="714.0" style="-fx-background-color: white; -fx-background-radius: 40;" text="                              Most Sell Products" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Serif Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label prefHeight="62.0" prefWidth="658.0">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+            </Label>
+            <PieChart fx:id="pieChart" prefHeight="400.0" prefWidth="704.0" styleClass="shadow" stylesheets="@../css/sidePannel.css" />
+         </children>
+      </VBox>
+      <Label layoutX="51.0" layoutY="107.0" text="Order Date :">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderDate" layoutX="169.0" layoutY="103.0" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: white;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1003.0" layoutY="107.0" text="Order Time :">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderTime" layoutX="1119.0" layoutY="103.0" prefHeight="29.0" prefWidth="104.0" style="-fx-background-color: white;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="487.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.parameeIceCream.controller.RegisterFormController">
+   <children>
+      <AnchorPane layoutX="401.0" prefHeight="487.0" prefWidth="403.0" style="-fx-background-color: #fc3468;">
+         <children>
+            <ImageView fitHeight="487.0" fitWidth="403.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Background.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <ImageView fitHeight="487.0" fitWidth="403.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/back.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="77.0" layoutY="109.0" text="Registration Form" textFill="#fc3468">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton id="sale" buttonType="RAISED" layoutX="99.0" layoutY="419.0" onAction="#btnRegisterOnAction" prefHeight="34.0" prefWidth="202.0" stylesheets="@../css/button.css" text="  Register Now" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/register.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <PasswordField fx:id="txtPw" layoutX="51.0" layoutY="306.0" onAction="#txtPasswordOnAction" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Password" />
+      <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="311.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/password.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtEmail" layoutX="51.0" layoutY="356.0" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Email" />
+      <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="311.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/email.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtName" layoutX="51.0" layoutY="256.0" onAction="#txtUserNameOnAction" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Name" />
+      <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="311.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/usericon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="163.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/user.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

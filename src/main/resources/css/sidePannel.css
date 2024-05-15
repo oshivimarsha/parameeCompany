@@ -1,0 +1,38 @@
+.nav-btn{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: .4px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10,0,0,0);
+}
+
+.shadow1 {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.nav-btn:hover{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000;
+}
+
+.logout{
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-cursor: hand;
+    -fx-background-radius: 0px;
+}
+.logout:hover{
+    -fx-background-color: #b9000d;
+}
+
+.pane {
+    -fx-background-color: #8fbc8f;
+}
+
+

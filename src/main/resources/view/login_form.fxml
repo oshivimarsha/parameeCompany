@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="487.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.parameeIceCream.controller.LoginFormController">
+   <children>
+      <AnchorPane prefHeight="487.0" prefWidth="400.0" style="-fx-background-color: #FC3468;">
+         <children>
+            <ImageView fitHeight="496.0" fitWidth="400.0" layoutX="-1.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Background.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="487.0" fitWidth="403.0" layoutX="399.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/back.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="562.0" layoutY="109.0" text="Login" textFill="#fc3468">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="562.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/user.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUserName" layoutX="466.0" layoutY="259.0" onAction="#txtEnterUserNameOnAction" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="36.0" prefWidth="269.0" promptText="        Enter User Name" />
+      <Button id="sale" fx:id="btnLogin" layoutX="528.0" layoutY="375.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="146.0" stylesheets="@../css/button.css" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/login.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="490.0" layoutY="427.0" text="Don't have an account?" />
+      <Hyperlink layoutX="650.0" layoutY="424.0" onAction="#linkRegistrationOnAction" text="Register" />
+      <PasswordField fx:id="txtPassword" layoutX="466.0" layoutY="306.0" onAction="#txtEnterPasswordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="36.0" prefWidth="269.0" promptText="        Enter Password" />
+      <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="702.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/password.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="701.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/usericon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
