@@ -156,13 +156,13 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSearchHere" layoutX="113.0" layoutY="89.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Here" />
+      <TextField fx:id="txtSearchHere" layoutX="113.0" layoutY="89.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Employee Tel" />
       <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="316.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/search.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="main_form" layoutX="41.0" layoutY="547.0" prefHeight="197.0" prefWidth="157.0" style="-fx-background-color: pink;">
+      <AnchorPane fx:id="main_form" layoutX="41.0" layoutY="547.0" prefHeight="197.0" prefWidth="157.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
          <children>
             <ImageView fx:id="imageView" fitHeight="197.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>

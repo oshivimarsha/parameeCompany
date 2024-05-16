@@ -3,6 +3,8 @@ package lk.ijse.parameeIceCream.repository;
 import lk.ijse.parameeIceCream.db.DbConnection;
 import lk.ijse.parameeIceCream.model.Employee;
 import lk.ijse.parameeIceCream.model.Ingredient;
+import lk.ijse.parameeIceCream.model.IngredientsProduct;
+import lk.ijse.parameeIceCream.model.OrderDetail;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -23,6 +25,29 @@ public class IngredientRepo {
         pstm.setObject(6, ingredient.getPrice());
         pstm.setObject(7, ingredient.getSupplierId());
         //  pstm.setObject(12, employee.getDepartmentName());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean update(List<IngredientsProduct> ipList) throws SQLException {
+        for (IngredientsProduct ip : ipList) {
+            System.out.println("qtyUpdate Item");
+            boolean isUpdateQty = updateQty(ip.getIngredientId(), ip.getQty());
+            if(!isUpdateQty) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean updateQty(String id, int qty) throws SQLException {
+        String sql = "UPDATE ingredient SET qtyInStock = qtyInStock - ? WHERE ingredientId = ?";
+        System.out.println("update ingredient QTY");
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setInt(1, qty);
+        pstm.setString(2, id);
 
         return pstm.executeUpdate() > 0;
     }

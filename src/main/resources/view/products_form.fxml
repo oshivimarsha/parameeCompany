@@ -40,9 +40,9 @@
       </TableView>
       <AnchorPane layoutX="12.0" layoutY="560.0" prefHeight="335.0" prefWidth="1276.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
          <children>
-            <AnchorPane fx:id="main_form" layoutX="1034.0" layoutY="41.0" prefHeight="197.0" prefWidth="157.0" style="-fx-background-color: pink;">
+            <AnchorPane fx:id="main_form" layoutX="1010.0" layoutY="41.0" prefHeight="197.0" prefWidth="208.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="197.0" fitWidth="167.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView" fitHeight="197.0" fitWidth="214.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true" />
                </children></AnchorPane>
             <JFXButton id="sale" layoutX="1056.0" layoutY="244.0" onAction="#btnImportOnAction" prefHeight="12.0" prefWidth="119.0" stylesheets="@../css/button.css" text=" Import" textFill="WHITE">
                <font>
@@ -150,8 +150,8 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSearchHere" layoutX="95.0" layoutY="86.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" />
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="298.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="txtSearchHere" layoutX="95.0" layoutY="86.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Product Name" />
+      <ImageView fitHeight="20.0" fitWidth="31.0" layoutX="294.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/search.png" />
          </image>

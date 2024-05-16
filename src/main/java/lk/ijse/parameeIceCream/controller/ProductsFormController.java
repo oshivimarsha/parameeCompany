@@ -151,6 +151,8 @@ public class ProductsFormController {
         txtQtyAvailable.setText("");
         txtUnitPrice.setText("");
         cmbDepartmentId.setValue("");
+        txtSearchHere.setText("");
+        imageView.setImage(null);
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {

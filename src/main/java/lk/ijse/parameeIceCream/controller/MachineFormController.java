@@ -143,6 +143,8 @@ public class MachineFormController {
         txtPurchaseCost.setText("");
         txtMaintainCost.setText("");
         cmbDepartmentId.setValue("");
+        txtSearchHere.setText("");
+        imageView.setImage(null);
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) throws SQLException {
@@ -235,6 +237,8 @@ public class MachineFormController {
             txtMaintainCost.setText(String.valueOf(machine.getMaintainCost()));
             cmbDepartmentId.setValue(machine.getDepartmentId());
             lblDepartmentName.setText(department.getName());
+            Image image = new Image(machine.getPath());
+            imageView.setImage(image);
 
         } else {
             new Alert(Alert.AlertType.INFORMATION, "employee not found!").show();
@@ -245,6 +249,7 @@ public class MachineFormController {
         String num = txtSearchHere.getText();
 
         Machine machine = MachineRepo.searchByNum(String.valueOf(num));
+        Department department = DepartmentRepo.searchById(machine.getDepartmentId());
         if (machine != null) {
             txtId.setText(machine.getId());
             txtMachineType.setText(machine.getType());
@@ -253,6 +258,9 @@ public class MachineFormController {
             txtPurchaseCost.setText(String.valueOf(machine.getPurchaseCost()));
             txtMaintainCost.setText(String.valueOf(machine.getMaintainCost()));
             cmbDepartmentId.setValue(machine.getDepartmentId());
+            lblDepartmentName.setText(department.getName());
+            Image image = new Image(machine.getPath());
+            imageView.setImage(image);
 
         } else {
             new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();

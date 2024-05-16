@@ -170,6 +170,7 @@ public class EmployeeFormController {
             cmbDepartmentId.setValue(employee.getDepartmentId());
            // lblDepartmentName.setText(employee.getDepartmentName());
 
+
         } else {
             new Alert(Alert.AlertType.INFORMATION, "employee not found!").show();
         }
@@ -255,6 +256,8 @@ public class EmployeeFormController {
         txtSalary.setText("");
         cmbDepartmentId.setValue("");
         lblDepartmentName.setText("");
+        txtSearchHere.setText("");
+        imageView.setImage(null);
     }
 
     private void getDepartmentId() {

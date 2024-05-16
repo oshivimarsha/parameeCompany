@@ -165,7 +165,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSearchHere" layoutX="983.0" layoutY="571.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Here" />
+      <TextField fx:id="txtSearchHere" layoutX="983.0" layoutY="571.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Serial Number " />
       <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="1179.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/search.png" />

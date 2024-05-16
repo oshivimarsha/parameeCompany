@@ -351,5 +351,6 @@ public class OrderFormController {
       //  lblUnitPrice.setText("");
         lblQtyOnHand.setText("");
         txtQty.setText("");
+        imageView.setImage(null);
     }
 }

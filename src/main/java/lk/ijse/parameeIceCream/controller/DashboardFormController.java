@@ -38,10 +38,13 @@ public class DashboardFormController {
     public Label lblOrderCount;
     public Label lblOrderDate;
     public Label lblOrderTime;
+    public Label lblProductCount;
 
     private int customerCount;
     private int employeeCount;
     private int orderCount;
+
+    private int productCount;
 
     public int orderList;
 
@@ -65,11 +68,20 @@ public class DashboardFormController {
 
 
         try {
-            orderCount = getProductCount();
+            orderCount = getOrderCount();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-        setProductCount(orderCount);
+        setOrderCount(orderCount);
+
+
+        try {
+            productCount = getProductCount();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        serProductCount(productCount);
+
 
         lineChart();
         pieChartConnect();
@@ -199,7 +211,24 @@ public class DashboardFormController {
         return 0;
     }
 
+    private void serProductCount(int employeeCount) {
+        lblProductCount.setText(String.valueOf(employeeCount));
+    }
+
     private int getProductCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS productCount FROM product";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        if(resultSet.next()) {
+            return resultSet.getInt("productCount");
+        }
+        return 0;
+    }
+
+    private int getOrderCount() throws SQLException {
         String sql = "SELECT COUNT(*) AS orderCount FROM orders";
 
         Connection connection = DbConnection.getInstance().getConnection();
@@ -212,7 +241,7 @@ public class DashboardFormController {
         return 0;
     }
 
-    private void setProductCount(int orderCount) {
+    private void setOrderCount(int orderCount) {
         lblOrderCount.setText(String.valueOf(orderCount));
     }
 

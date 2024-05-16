@@ -33,15 +33,15 @@ public class EmployeeRepo {
     }
 
     public static boolean update(Employee employee) throws SQLException {
-        String sql = "UPDATE employee SET employeeId = ?, name = ?, address = ?, email = ?, tel = ?, DOB = ?, registerDate = ?, position = ?, salary = ?, departmentId = ?, path = ? WHERE nic = ?";
+        String sql = "UPDATE employee SET employeeId = ?, name = ?, nic = ?, address = ?, email = ?, DOB = ?, registerDate = ?, position = ?, salary = ?, departmentId = ?, path = ? WHERE tel = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setObject(1, employee.getId());
         pstm.setObject(2, employee.getName());
-        pstm.setObject(3, employee.getAddress());
-        pstm.setObject(4, employee.getEmail());
-        pstm.setObject(5, employee.getTel());
+        pstm.setObject(3, employee.getNic());
+        pstm.setObject(4, employee.getAddress());
+        pstm.setObject(5, employee.getEmail());
         pstm.setObject(6, employee.getDob());
         pstm.setObject(7, employee.getRegisterDate());
         pstm.setObject(8, employee.getPosition());
@@ -49,7 +49,8 @@ public class EmployeeRepo {
         pstm.setObject(10, employee.getDepartmentId());
         //pstm.setObject(11, employee.getDepartmentName());
         pstm.setObject(11, employee.getPath());
-        pstm.setObject(12, employee.getNic());
+        pstm.setObject(12, employee.getTel());
+
 
         return pstm.executeUpdate() > 0;
     }
