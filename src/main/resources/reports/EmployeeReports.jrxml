@@ -112,40 +112,38 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="55" splitType="Stretch">
+		<band height="83" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="-20" width="600" height="93" uuid="114490c7-5170-45fd-8a9f-35494a2621a7"/>
+				<imageExpression><![CDATA["/home/oshi/Documents/IJSE/OOP/parameeIceCream/src/main/resources/reportImg/Blue and Yellow Minimalist Employee of the Month Certificate(1).png"]]></imageExpression>
+			</image>
 			<staticText>
-				<reportElement x="-25" y="1" width="595" height="54" uuid="8f4df043-74c3-43a7-b0bc-e221853a4280"/>
-				<box>
-					<topPen lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font fontName="Khmer OS System" size="25" isBold="true"/>
+				<reportElement x="340" y="30" width="229" height="50" uuid="7b97cac0-9cdf-40b3-8aa1-8b25b1015ad2"/>
+				<textElement>
+					<font size="37" isBold="true"/>
 				</textElement>
-				<text><![CDATA[PARAMEE DAIRY PRODUCTS]]></text>
+				<text><![CDATA[PARAMEE]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="197" splitType="Stretch">
 			<rectangle radius="14">
-				<reportElement x="-5" y="10" width="570" height="170" backcolor="#FA1167" uuid="d7d0b1ec-1ffc-4b9a-900a-205106398f28"/>
+				<reportElement x="140" y="39" width="420" height="100" forecolor="#FFFFFF" backcolor="#FA1167" uuid="d7d0b1ec-1ffc-4b9a-900a-205106398f28"/>
 			</rectangle>
 			<image>
-				<reportElement x="20" y="16" width="161" height="159" uuid="06fdfb39-8cf4-4c90-bcb2-15ef96b150bb"/>
+				<reportElement x="45" y="16" width="161" height="159" uuid="06fdfb39-8cf4-4c90-bcb2-15ef96b150bb"/>
 				<imageExpression><![CDATA[$F{path}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="210" y="48" width="350" height="72" uuid="4664d108-5004-40fe-bb2d-f4e7cd77da88"/>
+				<reportElement x="249" y="45" width="290" height="72" forecolor="#FFFFFF" uuid="4664d108-5004-40fe-bb2d-f4e7cd77da88"/>
 				<textElement>
 					<font fontName="Serif" size="40" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="299" y="98" width="231" height="50" uuid="27a19155-0ff3-4613-9035-c034310bd5b6"/>
+				<reportElement x="319" y="95" width="191" height="50" forecolor="#FFFFFF" uuid="27a19155-0ff3-4613-9035-c034310bd5b6"/>
 				<textElement>
 					<font size="20" isBold="true"/>
 				</textElement>
@@ -157,9 +155,9 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="458" splitType="Stretch">
+		<band height="470" splitType="Stretch">
 			<staticText>
-				<reportElement x="99" y="16" width="142" height="30" uuid="59150374-6665-4c17-b38a-9a4e213e8b20">
+				<reportElement x="99" y="39" width="142" height="30" uuid="59150374-6665-4c17-b38a-9a4e213e8b20">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="771e6240-9c25-4036-a7b1-de9e5af084a8"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -168,7 +166,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Employee Id]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="56" width="100" height="30" uuid="74518ede-8e1d-4e15-a0c0-207042d206ce">
+				<reportElement x="99" y="79" width="100" height="30" uuid="74518ede-8e1d-4e15-a0c0-207042d206ce">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fca0939c-e5a9-44f2-ad72-93ede8ef1fa1"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -177,7 +175,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="96" width="100" height="30" uuid="10c726a4-6565-4397-b78a-39341fb4b504">
+				<reportElement x="99" y="119" width="100" height="30" uuid="10c726a4-6565-4397-b78a-39341fb4b504">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9ff84a2-0539-40c8-b68a-3a5b46c857ec"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -186,7 +184,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Nic]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="136" width="100" height="30" uuid="39aa289e-7071-4cd5-8cf6-57390264816a">
+				<reportElement x="99" y="159" width="100" height="30" uuid="39aa289e-7071-4cd5-8cf6-57390264816a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a74d0253-fc7a-4a25-a762-608e0a996447"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -195,7 +193,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Address]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="176" width="100" height="30" uuid="ea034911-35f6-45cc-9eb4-8540191dc8c9">
+				<reportElement x="99" y="199" width="100" height="30" uuid="ea034911-35f6-45cc-9eb4-8540191dc8c9">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ba68d3e-a100-4d75-bdbe-921423a307cc"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -204,7 +202,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Email]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="216" width="100" height="30" uuid="499e4bcf-3fb1-4ad2-9d64-f1693aa04b0a">
+				<reportElement x="99" y="239" width="100" height="30" uuid="499e4bcf-3fb1-4ad2-9d64-f1693aa04b0a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68e48b60-9929-4bfd-8747-78ddca889798"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -213,7 +211,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Tel]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="256" width="100" height="30" uuid="a759003c-b068-4673-b4c1-2a0318a351b4">
+				<reportElement x="99" y="279" width="100" height="30" uuid="a759003c-b068-4673-b4c1-2a0318a351b4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0199e97-a2c1-43ae-aa69-929d68038621"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -222,7 +220,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[DOB]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="300" y="256" width="159" height="30" uuid="abef9607-21d6-47bc-82d8-de0bd7b53ef2">
+				<reportElement x="300" y="279" width="159" height="30" uuid="abef9607-21d6-47bc-82d8-de0bd7b53ef2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0199e97-a2c1-43ae-aa69-929d68038621"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -231,7 +229,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{DOB}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="99" y="296" width="142" height="30" uuid="0ee797ee-feb6-46a3-8a93-d5407261c843">
+				<reportElement x="99" y="319" width="142" height="30" uuid="0ee797ee-feb6-46a3-8a93-d5407261c843">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="76dc0570-be36-4f80-8911-1ff0f801c695"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -240,7 +238,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[RegisterDate]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="299" y="216" width="160" height="30" uuid="53c82985-25ad-457b-9d6c-13e2232f1814">
+				<reportElement x="299" y="239" width="160" height="30" uuid="53c82985-25ad-457b-9d6c-13e2232f1814">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68e48b60-9929-4bfd-8747-78ddca889798"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -249,7 +247,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{tel}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="16" width="159" height="30" uuid="1cac8ca9-f619-4667-aec8-6869b53b3527">
+				<reportElement x="300" y="39" width="159" height="30" uuid="1cac8ca9-f619-4667-aec8-6869b53b3527">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="771e6240-9c25-4036-a7b1-de9e5af084a8"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -258,7 +256,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{employeeId}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="96" width="159" height="30" uuid="a07a1365-4fdb-41e6-8574-6a78c5a9b5f7">
+				<reportElement x="300" y="119" width="159" height="30" uuid="a07a1365-4fdb-41e6-8574-6a78c5a9b5f7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9ff84a2-0539-40c8-b68a-3a5b46c857ec"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -267,7 +265,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{nic}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="56" width="159" height="30" uuid="cb0f74c9-bcdd-4c65-b272-cdae42d7ce1f">
+				<reportElement x="300" y="79" width="159" height="30" uuid="cb0f74c9-bcdd-4c65-b272-cdae42d7ce1f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fca0939c-e5a9-44f2-ad72-93ede8ef1fa1"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -276,7 +274,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="136" width="159" height="30" uuid="b16f0bbb-f634-4566-a831-dfc3c0525227">
+				<reportElement x="300" y="159" width="159" height="30" uuid="b16f0bbb-f634-4566-a831-dfc3c0525227">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a74d0253-fc7a-4a25-a762-608e0a996447"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -285,7 +283,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="176" width="159" height="30" uuid="e9bb2bac-9f98-4797-b059-788176237480">
+				<reportElement x="300" y="199" width="159" height="30" uuid="e9bb2bac-9f98-4797-b059-788176237480">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ba68d3e-a100-4d75-bdbe-921423a307cc"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -294,7 +292,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="99" y="336" width="100" height="30" uuid="a35ff68d-cd78-441a-93bb-bdd5d40ac432">
+				<reportElement x="99" y="359" width="100" height="30" uuid="a35ff68d-cd78-441a-93bb-bdd5d40ac432">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1848797-95ab-438f-b59f-3391004d2e27"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -303,7 +301,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Position]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="376" width="100" height="30" uuid="6347188a-8f84-418e-8943-36f19c1608e0">
+				<reportElement x="99" y="399" width="100" height="30" uuid="6347188a-8f84-418e-8943-36f19c1608e0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0613d191-10bf-44f7-9596-a905b08e0d0b"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -312,7 +310,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Salary]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="416" width="140" height="30" uuid="fdbb6498-a7d5-4987-987b-a5b9d00151f6">
+				<reportElement x="100" y="439" width="140" height="30" uuid="fdbb6498-a7d5-4987-987b-a5b9d00151f6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b447c790-ecf9-4eeb-b550-b46ad103efad"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -321,7 +319,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<text><![CDATA[Department Id]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="300" y="296" width="159" height="30" uuid="d948bab0-b259-4744-afd6-5cac7d2501a8">
+				<reportElement x="300" y="319" width="159" height="30" uuid="d948bab0-b259-4744-afd6-5cac7d2501a8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="76dc0570-be36-4f80-8911-1ff0f801c695"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -330,7 +328,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{registerDate}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="336" width="159" height="30" uuid="0e68304d-6e92-42b4-8966-5726f84c3cc8">
+				<reportElement x="300" y="359" width="159" height="30" uuid="0e68304d-6e92-42b4-8966-5726f84c3cc8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1848797-95ab-438f-b59f-3391004d2e27"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -339,7 +337,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{position}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="376" width="159" height="30" uuid="b686e038-068d-4d22-a8bc-c1abe3473b41">
+				<reportElement x="300" y="399" width="159" height="30" uuid="b686e038-068d-4d22-a8bc-c1abe3473b41">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0613d191-10bf-44f7-9596-a905b08e0d0b"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -348,7 +346,7 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{salary}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="416" width="159" height="30" uuid="e77b52c6-8359-45d8-b54a-509ea1127d6f">
+				<reportElement x="300" y="439" width="159" height="30" uuid="e77b52c6-8359-45d8-b54a-509ea1127d6f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b447c790-ecf9-4eeb-b550-b46ad103efad"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -357,77 +355,77 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 				<textFieldExpression><![CDATA[$F{departmentId}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="246" y="16" width="23" height="30" uuid="d596d1f8-8dbf-46bf-b628-15093bee1b05"/>
+				<reportElement x="246" y="39" width="23" height="30" uuid="d596d1f8-8dbf-46bf-b628-15093bee1b05"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="56" width="23" height="30" uuid="3ca6e715-23f9-43e5-bdeb-934fe9270026"/>
+				<reportElement x="246" y="79" width="23" height="30" uuid="3ca6e715-23f9-43e5-bdeb-934fe9270026"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="96" width="23" height="30" uuid="9e0b8042-5372-4cf9-939f-e2d4852712b1"/>
+				<reportElement x="246" y="119" width="23" height="30" uuid="9e0b8042-5372-4cf9-939f-e2d4852712b1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="247" y="136" width="23" height="30" uuid="9767d514-67d7-4cb3-92c0-639459edd706"/>
+				<reportElement x="247" y="159" width="23" height="30" uuid="9767d514-67d7-4cb3-92c0-639459edd706"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="176" width="23" height="30" uuid="a0431653-a831-4841-bb43-84b0c0b3e2fe"/>
+				<reportElement x="246" y="199" width="23" height="30" uuid="a0431653-a831-4841-bb43-84b0c0b3e2fe"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="216" width="23" height="30" uuid="2fb0d85b-df54-4390-bd4a-87bc1d8350c6"/>
+				<reportElement x="246" y="239" width="23" height="30" uuid="2fb0d85b-df54-4390-bd4a-87bc1d8350c6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="256" width="23" height="30" uuid="47e3ccf7-7e0d-410b-a713-342c4706c616"/>
+				<reportElement x="246" y="279" width="23" height="30" uuid="47e3ccf7-7e0d-410b-a713-342c4706c616"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="247" y="296" width="23" height="30" uuid="b0df97f6-3440-4e9d-b782-4d62d49fc694"/>
+				<reportElement x="247" y="319" width="23" height="30" uuid="b0df97f6-3440-4e9d-b782-4d62d49fc694"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="247" y="415" width="23" height="30" uuid="4d33063d-fd05-4897-a4f2-a636812fc5c1"/>
+				<reportElement x="247" y="438" width="23" height="30" uuid="4d33063d-fd05-4897-a4f2-a636812fc5c1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="375" width="23" height="30" uuid="8ac19063-9828-43ce-a556-7822f9fcec05"/>
+				<reportElement x="246" y="398" width="23" height="30" uuid="8ac19063-9828-43ce-a556-7822f9fcec05"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="335" width="23" height="30" uuid="7014fd10-eef3-4d3f-9cce-80effb5dfd61"/>
+				<reportElement x="246" y="358" width="23" height="30" uuid="7014fd10-eef3-4d3f-9cce-80effb5dfd61"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
@@ -436,16 +434,17 @@ WHERE  `parameeCompany`.employee.`employeeId` = $P{employeeId}]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="10" splitType="Stretch">
-			<line>
-				<reportElement x="-20" y="-5" width="595" height="1" uuid="3542ba48-0f7b-4ee5-bd2d-c22e6b44209d"/>
-			</line>
-		</band>
+		<band height="5" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="79" splitType="Stretch"/>
+		<band height="34" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="2" width="595" height="28" uuid="ef60e9f6-3f5e-4998-9146-ff28199b05b0"/>
+				<imageExpression><![CDATA["/home/oshi/Documents/IJSE/OOP/parameeIceCream/src/main/resources/reportImg/Purple and Pink Simple Invoice Business Document(2).png"]]></imageExpression>
+			</image>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="3" splitType="Stretch"/>
 	</summary>
 </jasperReport>

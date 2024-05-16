@@ -56,21 +56,6 @@ public class ProductRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static List<String> getIds() throws SQLException {
-        String sql = "SELECT category FROM product";
-        PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                .prepareStatement(sql);
-
-        List<String> categoryList = new ArrayList<>();
-
-        ResultSet resultSet = pstm.executeQuery();
-        while (resultSet.next()) {
-            String category = resultSet.getString(1);
-            categoryList.add(category);
-        }
-        return categoryList;
-    }
-
     public static List<Product> getAll() throws SQLException {
         String sql = "SELECT * FROM product";
 
@@ -185,4 +170,5 @@ public class ProductRepo {
 
         return pstm.executeUpdate() > 0;
     }
+
 }

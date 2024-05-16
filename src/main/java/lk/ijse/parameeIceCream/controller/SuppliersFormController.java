@@ -103,6 +103,7 @@ public class SuppliersFormController {
         txtAddress.setText("");
         txtEmail.setText("");
         txtTel.setText("");
+        txtSearchHere.setText("");
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) throws SQLException {
@@ -146,9 +147,9 @@ public class SuppliersFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException {
-        String nic = txtNIC.getText();
+        String tel = txtTel.getText();
 
-        boolean isDeleted = SupplierRepo.delete(nic);
+        boolean isDeleted = SupplierRepo.delete(tel);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Supplier Deleted!").show();
             clearFields();
@@ -183,8 +184,8 @@ public class SuppliersFormController {
             txtName.setText(supplier.getName());
             txtNIC.setText(supplier.getNic());
             txtAddress.setText(supplier.getAddress());
-            txtTel.setText(supplier.getTel());
             txtEmail.setText(supplier.getEmail());
+            txtTel.setText(supplier.getTel());
         } else {
             new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
         }

@@ -116,7 +116,7 @@ public class CustomerFormController {
         String email = txtEmail.getText();
         String tel = txtTel.getText();
 
-        Customer customer = new Customer(id, name, nic, address, tel, email);
+        Customer customer = new Customer(id, name, nic, address, email, tel);
 
         try {
             boolean isSaved = CustomerRepo.save(customer);
@@ -148,7 +148,7 @@ public class CustomerFormController {
         String email = txtEmail.getText();
         String tel = txtTel.getText();
 
-        Customer customer = new Customer(id, name, nic, address, tel, email);
+        Customer customer = new Customer(id, name, nic, address, email, tel);
 
         boolean isUpdated = CustomerRepo.update(customer);
         if(isUpdated) {
@@ -176,19 +176,6 @@ public class CustomerFormController {
     @FXML
     void txtSearchOnAction(ActionEvent event) throws SQLException {
         txtAddress.requestFocus();
-        String nic = txtNIC.getText();
-
-        Customer customer = CustomerRepo.searchByNic(String.valueOf(nic));
-        if (customer != null) {
-            txtId.setText(customer.getId());
-            txtName.setText(customer.getName());
-            txtNIC.setText(customer.getNic());
-            txtAddress.setText(customer.getAddress());
-            txtEmail.setText(customer.getEmail());
-            txtTel.setText(customer.getTel());
-        } else {
-            new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
-        }
     }
 
     public static List<String> getIds() throws SQLException {
@@ -236,9 +223,6 @@ public class CustomerFormController {
         txtEmail.requestFocus();
     }
 
-    public void txtTelOnAction(ActionEvent actionEvent) {
-        btnSave.requestFocus();
-    }
 
     public void txtEmailOnAction(ActionEvent actionEvent) {
         txtTel.requestFocus();

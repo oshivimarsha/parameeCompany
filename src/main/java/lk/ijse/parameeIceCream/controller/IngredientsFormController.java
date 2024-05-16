@@ -155,7 +155,7 @@ public class IngredientsFormController {
         String name = txtName.getText();
         String qtyInStock = txtQtyInStock.getText();
         String unitOfMeasure = txtUnitOfMeasure.getText();
-        int unitPrice = Integer.parseInt((txtUnitPrice.getText()));
+        double unitPrice = Double.parseDouble(((txtUnitPrice.getText())));
         double price = Double.parseDouble(txtPrice.getText());
         String supplierId = cmbSupplierId.getValue();
         //String departmentName = lblDepartmentName.getText();

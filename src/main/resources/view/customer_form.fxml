@@ -47,14 +47,12 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTel" layoutX="880.0" layoutY="201.0" onAction="#txtTelOnAction" prefHeight="35.0" prefWidth="260.0" />
-      <TextField fx:id="txtEmail" layoutX="880.0" layoutY="158.0" onAction="#txtEmailOnAction" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="31.0" layoutY="404.0" text="Search :">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSearchHere" layoutX="103.0" layoutY="396.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Here" />
+      <TextField fx:id="txtSearchHere" layoutX="103.0" layoutY="396.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Customer Tel" />
       <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="301.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/search.png" />
@@ -128,13 +126,15 @@
           <TableColumn fx:id="colName" prefWidth="288.0" text="Name" />
             <TableColumn fx:id="colNic" prefWidth="197.0" text="NIC" />
             <TableColumn fx:id="colAddress" prefWidth="210.0" text="Address" />
-            <TableColumn fx:id="colEmail" prefWidth="209.0" text="Email" />
-            <TableColumn fx:id="colTel" prefWidth="207.0" text="Tel" />
+            <TableColumn fx:id="colTel" prefWidth="207.0" text="Email" />
+            <TableColumn fx:id="colEmail" prefWidth="209.0" text="Tel" />
         </columns>
          <stylesheets>
             <URL value="@../css/tableView.css" />
             <URL value="@../css/sidePannel.css" />
          </stylesheets>
       </TableView>
+      <TextField fx:id="txtEmail" layoutX="880.0" layoutY="158.0" onAction="#txtEmailOnAction" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtTel" layoutX="880.0" layoutY="201.0" prefHeight="35.0" prefWidth="260.0" />
    </children>
 </AnchorPane>

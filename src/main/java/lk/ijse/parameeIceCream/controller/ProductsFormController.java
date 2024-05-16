@@ -20,6 +20,7 @@ import lk.ijse.parameeIceCream.repository.CustomerRepo;
 import lk.ijse.parameeIceCream.repository.DepartmentRepo;
 import lk.ijse.parameeIceCream.repository.EmployeeRepo;
 import lk.ijse.parameeIceCream.repository.ProductRepo;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.io.File;
 import java.sql.Date;
@@ -41,7 +42,6 @@ public class ProductsFormController {
     public TableColumn<?, ?> colUnitPrice;
     public TableColumn<?, ?> colDepartmentId;
     public TableColumn<?, ?> colDepartmentName;
-    public JFXComboBox<String> cmbCategory;
     public JFXComboBox<String> cmbDepartmentId;
     public TextField txtQtyAvailable;
     public TextField txtUnitPrice;
@@ -53,14 +53,31 @@ public class ProductsFormController {
     public TextField txtDescription;
     public AnchorPane main_form;
     public TextField txtSearchHere;
+    public TextField txtCategory;
 
 
     public void initialize() {
         setCellValueFactory();
         loadAllProduct();
         getDepartmentId();
-        getCategory();
+        getProductName();
 
+    }
+
+    private void getProductName() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<String> nameList = ProductRepo.getName();
+
+            for(String name : nameList) {
+                obList.add(name);
+            }
+            TextFields.bindAutoCompletion(txtSearchHere, obList);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void loadAllProduct() {
@@ -98,23 +115,6 @@ public class ProductsFormController {
         colDepartmentId.setCellValueFactory(new PropertyValueFactory<>("departmentId"));
     }
 
-    private void getCategory() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-
-        try {
-            List<String> idList = ProductRepo.getIds();
-
-            for(String id : idList) {
-                obList.add(id);
-            }
-
-            cmbCategory.setItems(obList);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private void getDepartmentId() {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
@@ -146,7 +146,7 @@ public class ProductsFormController {
     private void clearFields() {
         txtId.setText("");
         txtName.setText("");
-        cmbCategory.setValue("");
+        txtCategory.setText("");
         txtDescription.setText("");
         txtQtyAvailable.setText("");
         txtUnitPrice.setText("");
@@ -156,7 +156,7 @@ public class ProductsFormController {
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String id = txtId.getText();
         String name = txtName.getText();
-        String category = cmbCategory.getValue();
+        String category = txtCategory.getText();
         String description = txtDescription.getText();
         int qtyAvailable = Integer.parseInt(txtQtyAvailable.getText());
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
@@ -180,7 +180,7 @@ public class ProductsFormController {
     public void btnUpdateOnAction(ActionEvent actionEvent) throws SQLException {
         String id = txtId.getText();
         String name = txtName.getText();
-        String category = cmbCategory.getValue();
+        String category = txtCategory.getText();
         String description = txtDescription.getText();
         int qtyAvailable = Integer.parseInt(txtQtyAvailable.getText());
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
@@ -226,39 +226,24 @@ public class ProductsFormController {
         }
     }
 
-    public void cmbCategoryOnAction(ActionEvent actionEvent) {
-        /*String name = cmbCategory.getValue();
-        try {
-            Department department = DepartmentRepo.searchByName(name);
-
-            lblDepartmentName.setText(department.getName());
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }*/
-    }
-
     public void txtSearchHereOnAction(ActionEvent actionEvent) throws SQLException {
         String name = txtSearchHere.getText();
-        //String tell = txtSearchHere.getText();
 
         Product product = ProductRepo.searchByName(name);
-        // Department department = DepartmentRepo.searchById(employee.getDepartmentId());
+
         if (product != null) {
             txtId.setText(product.getId());
             txtName.setText(product.getName());
-            cmbCategory.setValue(product.getCategory());
+            txtCategory.setText(product.getCategory());
             txtDescription.setText(product.getDescription());
             txtQtyAvailable.setText(String.valueOf(product.getQtyAvailable()));
             txtUnitPrice.setText(String.valueOf(product.getUnitPrice()));
             cmbDepartmentId.setValue(product.getDepartmentId());
-            //  lblDepartmentName.setText(department.getName());
             Image image = new Image(product.getPath());
             imageView.setImage(image);
 
-
         } else {
-            new Alert(Alert.AlertType.INFORMATION, "product not found!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Product not found!").show();
         }
     }
 }

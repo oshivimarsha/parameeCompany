@@ -6,11 +6,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.parameeIceCream.db.DbConnection;
 import lk.ijse.parameeIceCream.model.*;
 import lk.ijse.parameeIceCream.model.tm.OrderTm;
@@ -21,6 +23,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import org.controlsfx.control.textfield.TextFields;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -45,8 +48,6 @@ public class OrderFormController {
     public TableColumn<?, ?> colPrice;
     public TableColumn<?, ?> colAction;
     public Label lblOrderTime;
-    public TextField txtCustomerId;
-    //public TextField txtAmount;
     public Label lblChange;
     public TextField txtProductName;
     public TextField txtCustomerTel;
@@ -57,6 +58,9 @@ public class OrderFormController {
     public Label lblOrderName;
 
     public Image image;
+    public AnchorPane rootNode;
+    public JFXButton btnAddToCart;
+    public JFXButton btnPlaceOrder;
 
     private ObservableList<OrderTm> obList = FXCollections.observableArrayList();
 
@@ -143,12 +147,14 @@ public class OrderFormController {
         LocalTime now = LocalTime.now();
         lblOrderTime.setText(String.valueOf(now));
     }
-    public void btnNewCustomerOnAction(ActionEvent actionEvent) {
-
+    public void btnNewCustomerOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane employeePane = FXMLLoader.load(this.getClass().getResource("/view/customer_form.fxml"));
+        rootNode.getChildren().clear();
+        rootNode.getChildren().add(employeePane);
     }
 
     public void txtQtyOnAction(ActionEvent actionEvent) {
-
+        btnAddToCart.requestFocus();
     }
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
@@ -188,6 +194,13 @@ public class OrderFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        txtCustomerTel.setText("");
+        lblCustomerName.setText("");
+        lblCustomerId.setText("");
+        lblTotal.setText("");
+        txtAmount.setText("");
+        lblChange.setText("");
+
     }
 
     @FXML
@@ -212,6 +225,7 @@ public class OrderFormController {
 
                 tblOrderCart.refresh();
                 calculateNetTotal();
+
             }
         });
 
@@ -237,7 +251,8 @@ public class OrderFormController {
 
         tblOrderCart.setItems(obList);
         calculateNetTotal();
-        txtQty.setText("");
+        clearFields();
+        txtProductName.requestFocus();
     }
 
     private double calculateNetTotal() {
@@ -295,6 +310,7 @@ public class OrderFormController {
         double change = (amount - total);
 
         lblChange.setText(String.valueOf(change));
+        btnPlaceOrder.requestFocus();
     }
 
     public void txtProductNameOnAction(ActionEvent actionEvent) {
@@ -312,6 +328,7 @@ public class OrderFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        txtQty.requestFocus();
     }
 
     public void txtCustomerTelOnAction(ActionEvent actionEvent) {
@@ -325,5 +342,14 @@ public class OrderFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        txtProductName.requestFocus();
+    }
+
+    private void clearFields() {
+        txtProductName.setText("");
+        lblProductId.setText("");
+      //  lblUnitPrice.setText("");
+        lblQtyOnHand.setText("");
+        txtQty.setText("");
     }
 }

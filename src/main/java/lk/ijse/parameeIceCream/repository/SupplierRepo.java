@@ -30,26 +30,26 @@ public class SupplierRepo {
     }
 
     public static boolean update(Supplier supplier) throws SQLException {
-        String sql = "UPDATE supplier SET supplierId = ?, name = ?, address = ?, email = ?, tel = ? WHERE nic = ?";
+        String sql = "UPDATE supplier SET supplierId = ?, name = ?, nic = ?, address = ?, email = ? WHERE tel = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setObject(1, supplier.getId());
         pstm.setObject(2, supplier.getName());
-        pstm.setObject(3, supplier.getAddress());
-        pstm.setObject(4, supplier.getEmail());
-        pstm.setObject(5, supplier.getTel());
-        pstm.setObject(6, supplier.getNic());
+        pstm.setObject(3, supplier.getNic());
+        pstm.setObject(4, supplier.getAddress());
+        pstm.setObject(5, supplier.getEmail());
+        pstm.setObject(6, supplier.getTel());
 
         return pstm.executeUpdate() > 0;
     }
 
-    public static boolean delete(String nic) throws SQLException {
-        String sql = "DELETE FROM supplier WHERE nic = ?";
+    public static boolean delete(String tel) throws SQLException {
+        String sql = "DELETE FROM supplier WHERE tel = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setObject(1, nic);
+        pstm.setObject(1, tel);
 
         return pstm.executeUpdate() > 0;
     }
@@ -68,8 +68,8 @@ public class SupplierRepo {
             String name = resultSet.getString(2);
             String nic = resultSet.getString(3);
             String address = resultSet.getString(4);
-            String sTel = resultSet.getString(5);
-            String email = resultSet.getString(6);
+            String email = resultSet.getString(5);
+            String sTel = resultSet.getString(6);
 
             Supplier supplier = new Supplier(id, name, nic, address, email, sTel);
 

@@ -13,6 +13,7 @@ public class Supplier {
     private String name;
     private String nic;
     private String address;
-    private String tel;
     private String email;
+    private String tel;
+
 }

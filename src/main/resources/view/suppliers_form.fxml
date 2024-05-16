@@ -33,7 +33,7 @@
             </Label>
             <TextField fx:id="txtName" layoutX="235.0" layoutY="89.0" prefHeight="35.0" prefWidth="260.0" />
             <TextField fx:id="txtNIC" layoutX="235.0" layoutY="132.0" prefHeight="35.0" prefWidth="260.0" />
-            <TextField fx:id="txtTel" layoutX="802.0" layoutY="133.0" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtEmail" layoutX="802.0" layoutY="89.0" prefHeight="35.0" prefWidth="260.0" />
             <Label layoutX="604.0" layoutY="97.0" text="Supplier Email        :">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
@@ -44,7 +44,7 @@
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmail" layoutX="802.0" layoutY="89.0" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtTel" layoutX="802.0" layoutY="132.0" prefHeight="35.0" prefWidth="260.0" />
             <TextField fx:id="txtAddress" layoutX="801.0" layoutY="46.0" prefHeight="35.0" prefWidth="260.0" />
             <Label layoutX="603.0" layoutY="54.0" text="Supplier Address    :">
                <font>
@@ -116,8 +116,8 @@
             <TableColumn fx:id="colName" prefWidth="266.0" text="Name" />
             <TableColumn fx:id="colNic" prefWidth="235.0" text="NIC" />
             <TableColumn fx:id="colAddress" prefWidth="225.0" text="Address" />
-            <TableColumn fx:id="colEmail" prefWidth="201.0" text="Email" />
-            <TableColumn fx:id="colTel" prefWidth="212.0" text="Tel" />
+            <TableColumn fx:id="colTel" prefWidth="212.0" text="Email" />
+            <TableColumn fx:id="colEmail" prefWidth="201.0" text="Tel" />
          </columns>
       </TableView>
       <Label layoutX="18.0" layoutY="432.0" text="Search :">
@@ -125,7 +125,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSearchHere" layoutX="90.0" layoutY="424.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Here" />
+      <TextField fx:id="txtSearchHere" layoutX="90.0" layoutY="424.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Supplier Tel" />
       <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="287.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/search.png" />

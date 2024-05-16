@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepo {
+public class    CustomerRepo {
     public static boolean save(Customer customer) throws SQLException {
         String sql = "INSERT INTO customer VALUES(?, ?, ?, ?, ?, ?)";
 
@@ -28,16 +28,16 @@ public class CustomerRepo {
     }
 
     public static boolean update(Customer customer) throws SQLException {
-        String sql = "UPDATE customer SET customerId = ?, name = ?, address = ?, tel = ?, email = ? WHERE nic = ?";
+        String sql = "UPDATE customer SET customerId = ?, name = ?, nic = ?, address = ?, email = ? WHERE tel = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setObject(1, customer.getId());
         pstm.setObject(2, customer.getName());
-        pstm.setObject(3, customer.getAddress());
-        pstm.setObject(4, customer.getEmail());
-        pstm.setObject(5, customer.getTel());
-        pstm.setObject(6, customer.getNic());
+        pstm.setObject(3, customer.getNic());
+        pstm.setObject(4, customer.getAddress());
+        pstm.setObject(5, customer.getEmail());
+        pstm.setObject(6, customer.getTel());
 
         return pstm.executeUpdate() > 0;
     }
