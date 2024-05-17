@@ -36,7 +36,7 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="368.0" layoutY="119.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtId" layoutX="368.0" layoutY="119.0" onKeyReleased="#txtIdOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="161.0" layoutY="127.0" text="Ingredients Id          :">
          <font>
             <Font name="System Bold Italic" size="16.0" />
@@ -52,8 +52,8 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="368.0" layoutY="172.0" onAction="#txtSearchOnAction" prefHeight="35.0" prefWidth="260.0" />
-      <TextField fx:id="txtQtyInStock" layoutX="368.0" layoutY="225.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtName" layoutX="368.0" layoutY="172.0" onAction="#txtSearchOnAction" onKeyReleased="#txtNameOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtQtyInStock" layoutX="368.0" layoutY="225.0" onKeyReleased="#txtQtyOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <TextField fx:id="txtUnitOfMeasure" layoutX="368.0" layoutY="278.0" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="164.0" layoutY="284.0" text="Unit of Measure      :">
          <font>
@@ -70,7 +70,7 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPrice" layoutX="877.0" layoutY="172.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtPrice" layoutX="877.0" layoutY="172.0" onKeyReleased="#txtPriceOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="38.0" layoutY="472.0" text="Search :">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -159,7 +159,7 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUnitPrice" layoutX="877.0" layoutY="119.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtUnitPrice" layoutX="877.0" layoutY="119.0" onKeyReleased="#txtUnitPriceOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <JFXComboBox fx:id="cmbSupplierId" layoutX="877.0" layoutY="223.0" onAction="#cmbSupplierIdOnAction" prefHeight="35.0" prefWidth="260.0" style="-fx-background-color: white;" />
       <Label layoutX="693.0" layoutY="284.0" text="Supplier Name    :">
          <font>

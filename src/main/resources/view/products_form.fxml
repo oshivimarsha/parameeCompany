@@ -82,13 +82,13 @@
                </font>
             </Label>
             <JFXComboBox fx:id="cmbDepartmentId" layoutX="688.0" layoutY="124.0" onAction="#cmbDepartmentIdOnAction" prefHeight="35.0" prefWidth="260.0" style="-fx-background-color: white;" />
-            <TextField fx:id="txtQtyAvailable" layoutX="689.0" layoutY="30.0" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtQtyAvailable" layoutX="689.0" layoutY="30.0" onKeyReleased="#txtQtyOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
             <Label layoutX="486.0" layoutY="37.0" text="qty Available         : ">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUnitPrice" layoutX="688.0" layoutY="75.0" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtUnitPrice" layoutX="688.0" layoutY="75.0" onKeyReleased="#txtPriceOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
             <Label layoutX="484.0" layoutY="176.0" text="Department Name :">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
@@ -156,8 +156,8 @@
             <Image url="@../icon/search.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtId" layoutX="172.0" layoutY="592.0" prefHeight="35.0" prefWidth="260.0" />
-      <TextField fx:id="txtName" layoutX="172.0" layoutY="636.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtId" layoutX="172.0" layoutY="592.0" onKeyReleased="#txtIdOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtName" layoutX="172.0" layoutY="636.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="31.0" layoutY="690.0" text="Category     : ">
          <font>
             <Font name="System Bold Italic" size="16.0" />

@@ -112,7 +112,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtQty" layoutX="607.0" layoutY="241.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="74.0">
+            <TextField fx:id="txtQty" layoutX="607.0" layoutY="241.0" onAction="#txtQtyOnAction" onKeyReleased="#txtQtyOnKeyReleased" prefHeight="33.0" prefWidth="74.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></TextField>
@@ -137,11 +137,11 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <TextField fx:id="txtCustomerTel" layoutX="165.0" layoutY="77.0" onAction="#txtCustomerTelOnAction" prefHeight="38.0" prefWidth="294.0">
+            <TextField fx:id="txtCustomerTel" layoutX="165.0" layoutY="77.0" onAction="#txtCustomerTelOnAction" onKeyReleased="#txtTelOnKeyReleased" prefHeight="38.0" prefWidth="294.0">
                <font>
                   <Font size="18.0" />
                </font></TextField>
-            <TextField fx:id="txtProductName" layoutX="165.0" layoutY="193.0" onAction="#txtProductNameOnAction" prefHeight="38.0" prefWidth="294.0">
+            <TextField fx:id="txtProductName" layoutX="165.0" layoutY="193.0" onAction="#txtProductNameOnAction" onKeyReleased="#txtNameOnKeyReleased" prefHeight="38.0" prefWidth="294.0">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -173,7 +173,7 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="txtAmount" layoutX="373.0" layoutY="374.0" onAction="#txtAmountOnAction" prefHeight="45.0" prefWidth="140.0">
+            <TextField fx:id="txtAmount" layoutX="373.0" layoutY="374.0" onAction="#txtAmountOnAction" onKeyReleased="#txtAmountOnKeyReleased" prefHeight="45.0" prefWidth="140.0">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font></TextField>

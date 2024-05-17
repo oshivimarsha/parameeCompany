@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.parameeIceCream.model.Customer;
 import lk.ijse.parameeIceCream.model.Department;
 import lk.ijse.parameeIceCream.model.tm.CustomerTm;
@@ -162,5 +163,13 @@ public class DepartmentFormController {
         } else {
             new Alert(Alert.AlertType.INFORMATION, "department not found!").show();
         }
+    }
+
+    public void txtIdOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }

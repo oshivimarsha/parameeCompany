@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import lk.ijse.parameeIceCream.model.Customer;
@@ -265,5 +266,9 @@ public class MachineFormController {
         } else {
             new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
         }
+    }
+
+    public void txtIdOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }

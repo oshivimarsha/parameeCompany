@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.parameeIceCream.db.DbConnection;
@@ -74,5 +75,17 @@ public class RegisterFormController {
 
     public void txtUserNameOnAction(ActionEvent actionEvent) {
         txtPw.requestFocus();
+    }
+
+    public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }

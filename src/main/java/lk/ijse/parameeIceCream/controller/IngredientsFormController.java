@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.parameeIceCream.model.*;
 import lk.ijse.parameeIceCream.model.tm.EmployeeTm;
 import lk.ijse.parameeIceCream.model.tm.IngredientTm;
@@ -229,5 +230,25 @@ public class IngredientsFormController {
         } else {
             new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
         }
+    }
+
+    public void txtIdOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtQtyOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtPriceOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtUnitPriceOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }

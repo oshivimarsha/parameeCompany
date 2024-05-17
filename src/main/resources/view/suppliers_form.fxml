@@ -15,7 +15,7 @@
    <children>
       <Pane layoutX="16.0" layoutY="97.0" prefHeight="302.0" prefWidth="1272.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
          <children>
-            <TextField fx:id="txtId" layoutX="235.0" layoutY="46.0" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtId" layoutX="235.0" layoutY="46.0" onKeyReleased="#txtIdOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
             <Label layoutX="63.0" layoutY="54.0" text="Supplier Id         :">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
@@ -31,9 +31,9 @@
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtName" layoutX="235.0" layoutY="89.0" prefHeight="35.0" prefWidth="260.0" />
-            <TextField fx:id="txtNIC" layoutX="235.0" layoutY="132.0" prefHeight="35.0" prefWidth="260.0" />
-            <TextField fx:id="txtEmail" layoutX="802.0" layoutY="89.0" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtName" layoutX="235.0" layoutY="89.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtNIC" layoutX="235.0" layoutY="132.0" onKeyReleased="#txtNicOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtEmail" layoutX="802.0" layoutY="89.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
             <Label layoutX="604.0" layoutY="97.0" text="Supplier Email        :">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
@@ -44,8 +44,8 @@
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTel" layoutX="802.0" layoutY="132.0" prefHeight="35.0" prefWidth="260.0" />
-            <TextField fx:id="txtAddress" layoutX="801.0" layoutY="46.0" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtTel" layoutX="802.0" layoutY="132.0" onKeyReleased="#txtTelOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+            <TextField fx:id="txtAddress" layoutX="801.0" layoutY="46.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
             <Label layoutX="603.0" layoutY="54.0" text="Supplier Address    :">
                <font>
                   <Font name="System Bold Italic" size="16.0" />

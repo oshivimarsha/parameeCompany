@@ -45,19 +45,19 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <PasswordField fx:id="txtPw" layoutX="51.0" layoutY="306.0" onAction="#txtPasswordOnAction" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Password" />
+      <PasswordField fx:id="txtPw" layoutX="51.0" layoutY="306.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Password" />
       <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="311.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/password.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtEmail" layoutX="51.0" layoutY="356.0" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Email" />
+      <TextField fx:id="txtEmail" layoutX="51.0" layoutY="356.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Email" />
       <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="311.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/email.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtName" layoutX="51.0" layoutY="256.0" onAction="#txtUserNameOnAction" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Name" />
+      <TextField fx:id="txtName" layoutX="51.0" layoutY="256.0" onAction="#txtUserNameOnAction" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="299.0" promptText="        Enter User Name" />
       <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="311.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/usericon.png" />

@@ -115,7 +115,7 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTel" layoutX="461.0" layoutY="734.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtTel" layoutX="461.0" layoutY="734.0" onKeyReleased="#txtTelOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="272.0" layoutY="522.0" text="Employee Id          :">
          <font>
             <Font name="System Bold Italic" size="16.0" />
@@ -133,7 +133,7 @@
       </Label>
       <TextField fx:id="txtPosition" layoutX="986.0" layoutY="558.0" prefHeight="35.0" prefWidth="260.0" />
       <TextField fx:id="txtSalary" layoutX="986.0" layoutY="601.0" prefHeight="35.0" prefWidth="260.0" />
-      <TextField fx:id="txtId" layoutX="461.0" layoutY="514.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtId" layoutX="461.0" layoutY="514.0" onKeyReleased="#txtIdOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="272.0" layoutY="742.0" text="Employee Tel         :">
          <font>
             <Font name="System Bold Italic" size="16.0" />
@@ -149,8 +149,8 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="461.0" layoutY="557.0" prefHeight="35.0" prefWidth="260.0" />
-      <TextField fx:id="txtNic" layoutX="461.0" layoutY="600.0" onAction="#txtSearchOnAction" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtName" layoutX="461.0" layoutY="557.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtNic" layoutX="461.0" layoutY="600.0" onAction="#txtSearchOnAction" onKeyReleased="#txtNicOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="41.0" layoutY="96.0" text="Search :">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -176,7 +176,7 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAddress" layoutX="461.0" layoutY="645.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtAddress" layoutX="461.0" layoutY="645.0" onKeyReleased="#txtAdressOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <JFXButton id="sale" layoutX="58.0" layoutY="760.0" onAction="#btnImportImageOnAction" prefHeight="35.0" prefWidth="123.0" stylesheets="@../css/button.css" text="     Import" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -199,7 +199,7 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail" layoutX="461.0" layoutY="690.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtEmail" layoutX="461.0" layoutY="690.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
       <Label layoutX="274.0" layoutY="786.0" text="Date Of Birth         :">
          <font>
             <Font name="System Bold Italic" size="16.0" />

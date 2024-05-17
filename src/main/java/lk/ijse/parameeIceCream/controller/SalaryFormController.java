@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -252,5 +253,29 @@ public class SalaryFormController {
         AnchorPane employeePane = FXMLLoader.load(this.getClass().getResource("/view/employee_form.fxml"));
         rootNode.getChildren().clear();
         rootNode.getChildren().add(employeePane);
+    }
+
+    public void txtIdOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtSalaryOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtAllowencesOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtAdvance(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNicOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }

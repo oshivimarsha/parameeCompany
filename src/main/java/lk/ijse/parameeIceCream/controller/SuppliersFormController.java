@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.parameeIceCream.db.DbConnection;
 import lk.ijse.parameeIceCream.model.Customer;
 import lk.ijse.parameeIceCream.model.Supplier;
@@ -189,5 +190,29 @@ public class SuppliersFormController {
         } else {
             new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
         }
+    }
+
+    public void txtIdOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNicOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtTelOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }

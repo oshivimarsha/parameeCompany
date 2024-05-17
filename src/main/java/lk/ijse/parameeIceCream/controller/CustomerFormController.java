@@ -227,4 +227,28 @@ public class CustomerFormController {
     public void txtEmailOnAction(ActionEvent actionEvent) {
         txtTel.requestFocus();
     }
+
+    public void txtIdOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNicOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtTelOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
+
+    }
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.parameeIceCream.db.DbConnection;
 import lk.ijse.parameeIceCream.model.*;
@@ -102,40 +103,6 @@ public class OrderFormController {
             return "O" + ++idNum;
         }
         return "O1";
-    }
-
-
-    private void getProductName() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-
-        try {
-            List<String> nameList = ProductRepo.getName();
-
-            for(String name : nameList) {
-                obList.add(name);
-            }
-
-            TextFields.bindAutoCompletion(txtProductName, obList);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void getCustomerTels() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-
-        try {
-            List<String> telList = CustomerRepo.getTels();
-
-            for(String tel : telList) {
-                obList.add(tel);
-            }
-            TextFields.bindAutoCompletion(txtCustomerTel, obList);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private void setDate() {
@@ -313,6 +280,39 @@ public class OrderFormController {
         btnPlaceOrder.requestFocus();
     }
 
+    private void getProductName() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<String> nameList = ProductRepo.getName();
+
+            for(String name : nameList) {
+                obList.add(name);
+            }
+
+            TextFields.bindAutoCompletion(txtProductName, obList);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void getCustomerTels() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<String> telList = CustomerRepo.getTels();
+
+            for(String tel : telList) {
+                obList.add(tel);
+            }
+            TextFields.bindAutoCompletion(txtCustomerTel, obList);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void txtProductNameOnAction(ActionEvent actionEvent) {
         String name = txtProductName.getText();
         try {
@@ -352,5 +352,21 @@ public class OrderFormController {
         lblQtyOnHand.setText("");
         txtQty.setText("");
         imageView.setImage(null);
+    }
+
+    public void txtQtyOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtTelOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtAmountOnKeyReleased(KeyEvent keyEvent) {
+
     }
 }
