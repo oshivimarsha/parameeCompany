@@ -11,7 +11,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
@@ -118,38 +117,30 @@
             </ImageView>
          </children>
       </Pane>
-      <VBox layoutX="28.0" layoutY="401.0" prefHeight="484.0" prefWidth="479.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
-         <children>
-            <Label prefHeight="47.0" prefWidth="479.0" style="-fx-background-color: white; -fx-background-radius: 40;" text="                Weekly Amount" textFill="WHITE">
-               <font>
-                  <Font name="DejaVu Serif Bold" size="23.0" />
-               </font>
-            </Label>
-            <LineChart fx:id="lineChart">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-         </children>
-      </VBox>
-      <VBox layoutX="538.0" layoutY="398.0" prefHeight="484.0" prefWidth="735.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
-         <children>
-            <Label prefHeight="53.0" prefWidth="714.0" style="-fx-background-color: white; -fx-background-radius: 40;" text="                              Most Sell Products" textFill="WHITE">
-               <font>
-                  <Font name="DejaVu Serif Bold" size="23.0" />
-               </font>
-            </Label>
-            <Label prefHeight="62.0" prefWidth="658.0">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-            </Label>
-            <PieChart fx:id="pieChart" prefHeight="400.0" prefWidth="704.0" styleClass="shadow" stylesheets="@../css/sidePannel.css" />
-         </children>
-      </VBox>
+      <Label layoutX="27.0" layoutY="381.0" prefHeight="53.0" prefWidth="479.0" style="-fx-background-radius: 40;" text="                Weekly Amount">
+         <font>
+            <Font name="DejaVu Serif Bold" size="23.0" />
+         </font>
+      </Label>
+      <LineChart fx:id="lineChart" layoutX="28.0" layoutY="462.0" prefHeight="422.0" prefWidth="500.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Label layoutX="538.0" layoutY="381.0" prefHeight="53.0" prefWidth="714.0" style="-fx-background-radius: 40;" text="                              Most Sell Products">
+         <font>
+            <Font name="DejaVu Serif Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="538.0" layoutY="440.0" prefHeight="62.0" prefWidth="658.0">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </Label>
+      <PieChart fx:id="pieChart" layoutX="538.0" layoutY="449.0" prefHeight="444.0" prefWidth="735.0" styleClass="shadow" stylesheets="@../css/sidePannel.css" />
       <Label layoutX="51.0" layoutY="107.0" text="Order Date :">
          <font>
             <Font name="System Bold Italic" size="16.0" />

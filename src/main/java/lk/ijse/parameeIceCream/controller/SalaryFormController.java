@@ -87,8 +87,9 @@ public class SalaryFormController {
         colNic.setCellValueFactory(new PropertyValueFactory<>("nic"));
         colBasicSalary.setCellValueFactory(new PropertyValueFactory<>("basicSalary"));
         colAllowances.setCellValueFactory(new PropertyValueFactory<>("allowences"));
-        //colGrossSalary.setCellValueFactory(new PropertyValueFactory<>("grossSalary"));
+        colGrossSalary.setCellValueFactory(new PropertyValueFactory<>("grossSal"));
         colAdvance.setCellValueFactory(new PropertyValueFactory<>("advance"));
+        colNetPayable.setCellValueFactory(new PropertyValueFactory<>("netPay"));
 
     }
 
@@ -98,9 +99,12 @@ public class SalaryFormController {
         try {
             List<Salary> salaryList = SalaryRepo.getAll();
             Employee employee;
+            List<Double> netGrossSal;
             SalaryTm tm;
             for (Salary salary : salaryList) {
                 employee = EmployeeRepo.searchById(salary.getId());
+                netGrossSal = SalaryRepo.getSalaryDetail(employee.getId());
+
 
                 tm = new SalaryTm(
                         salary.getId(),
@@ -108,7 +112,9 @@ public class SalaryFormController {
                         employee.getNic(),
                         salary.getBasicSalary(),
                         salary.getAllowences(),
-                        salary.getAdvance()
+                        netGrossSal.get(0),
+                        salary.getAdvance(),
+                        netGrossSal.get(1)
                 );
 
                 obList.add(tm);
@@ -151,7 +157,6 @@ public class SalaryFormController {
         txtNic.setText("");
         txtBasicSalary.setText("");
         txtAllowances.setText("");
-        txtGrossSalary.setText("");
         txtAdvance.setText("");
 
     }
@@ -251,7 +256,7 @@ public class SalaryFormController {
     }
 
     public void txtIdOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.SID, txtId);
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.EID, txtId);
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
@@ -275,7 +280,7 @@ public class SalaryFormController {
     }
 
     public boolean isValied(){
-        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.SID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.EID, txtId)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NIC, txtNic)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtBasicSalary)) return false;

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class    CustomerRepo {
+public class CustomerRepo {
     public static boolean save(Customer customer) throws SQLException {
         String sql = "INSERT INTO customer VALUES(?, ?, ?, ?, ?, ?)";
 

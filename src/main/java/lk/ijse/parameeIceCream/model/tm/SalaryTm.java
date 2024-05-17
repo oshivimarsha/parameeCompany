@@ -14,5 +14,7 @@ public class SalaryTm {
     private String nic;
     private double basicSalary;
     private double allowences;
+    private double grossSal;
     private double advance;
+    private double netPay;
 }

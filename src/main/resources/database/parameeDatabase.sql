@@ -6,8 +6,8 @@ use parameeCompany;
 
 CREATE TABLE users(
     userName VARCHAR(20) PRIMARY KEY,
-    password VARCHAR(10),
-    email VARCHAR(25)
+    password VARCHAR(20),
+    email TEXT
 );
 
 INSERT INTO users VALUES('oshadhi', '0812', 'oshi@gmail.com');

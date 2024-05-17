@@ -30,18 +30,20 @@ public class ProductRepo {
     }
 
     public static boolean update(Product product) throws SQLException {
-        String sql = "UPDATE product SET productId = ?, category = ?, description = ?, qtyAvailable = ?, unitPrice = ?, departmentId = ?, path = ? WHERE name = ?";
+        String sql = "UPDATE product SET  name = ?, category = ?, description = ?, qtyAvailable = ?, unitPrice = ?, departmentId = ?, path = ? WHERE productId = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setObject(1, product.getId());
+
+        pstm.setObject(1, product.getName());
         pstm.setObject(2, product.getCategory());
         pstm.setObject(3, product.getDescription());
         pstm.setObject(4, product.getQtyAvailable());
         pstm.setObject(5, product.getUnitPrice());
         pstm.setObject(6, product.getDepartmentId());
         pstm.setObject(7, product.getPath());
-        pstm.setObject(8, product.getName());
+        pstm.setObject(8, product.getId());
+
 
         return pstm.executeUpdate() > 0;
     }

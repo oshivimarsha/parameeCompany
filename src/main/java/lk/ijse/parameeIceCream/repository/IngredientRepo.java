@@ -52,6 +52,29 @@ public class IngredientRepo {
         return pstm.executeUpdate() > 0;
     }
 
+    public static boolean updatePlus(List<IngredientsProduct> ipList) throws SQLException {
+        for (IngredientsProduct ip : ipList) {
+            System.out.println("qtyUpdate Item");
+            boolean isUpdateQty = updatePlusQty(ip.getIngredientId(), ip.getQty());
+            if(!isUpdateQty) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean updatePlusQty(String id, int qty) throws SQLException {
+        String sql = "UPDATE ingredient SET qtyInStock = qtyInStock + ? WHERE ingredientId = ?";
+        System.out.println("update ingredient QTY");
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setInt(1, qty);
+        pstm.setString(2, id);
+
+        return pstm.executeUpdate() > 0;
+    }
+
     public static boolean update(Ingredient ingredient) throws SQLException {
         String sql = "UPDATE ingredient SET ingredientId = ?, qtyInStock = ?, unitOfMeasure = ?, unitPrice = ?, price = ?, supplierId = ? WHERE name = ?";
 
@@ -143,5 +166,33 @@ public class IngredientRepo {
             nameList.add(name);
         }
         return nameList;
+    }
+
+    public static List<Ingredient> searchById(String id) throws SQLException {
+        String sql = "SELECT * FROM ingredient WHERE ingredientId = ?";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setObject(1, id);
+
+        List<Ingredient> list = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()) {
+
+            String iId = resultSet.getString(1);
+            String iName = resultSet.getString(2);
+            String qtyInStock = resultSet.getString(3);
+            String unitOfMeasure = resultSet.getString(4);
+            double unitPrice = Double.parseDouble(resultSet.getString(5));
+            double price = Double.parseDouble(resultSet.getString(6));
+            String supplierId = resultSet.getString(7);
+
+            Ingredient ingredient = new Ingredient(iId, iName, qtyInStock, unitOfMeasure, unitPrice, price, supplierId);
+
+            list.add(ingredient);
+        }
+
+        return list;
     }
 }

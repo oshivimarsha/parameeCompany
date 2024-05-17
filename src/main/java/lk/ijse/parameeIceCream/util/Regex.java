@@ -1,7 +1,5 @@
 package lk.ijse.parameeIceCream.util;
 
-import com.jfoenix.controls.JFXTextField;
-import javafx.scene.paint.Paint;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,7 +43,7 @@ public class Regex {
                 filed = "^([A-z])([A-z0-9.]){1,}[@]([A-z0-9]){1,10}[.]([A-z]){2,5}$";
                 break;
             case PASSWORD:
-                filed = "^(?=.[a-z])(?=.[A-Z])(?=.\\d)(?=.[^A-Za-z\\d]).{8,}$";
+                filed = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
                 break;
             case TEL:
                 filed = "^\\d{10}$";

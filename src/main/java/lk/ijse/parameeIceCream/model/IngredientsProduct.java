@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class IngredientsProduct {
-    private String ingredientId;
     private String productId;
+    private String ingredientId;
     private int qty;
     private double unitPrice;
 }

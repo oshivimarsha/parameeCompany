@@ -146,11 +146,12 @@ public class EmployeeFormController {
     public void btnImportImageOnAction(ActionEvent actionEvent) {
             FileChooser openFile = new FileChooser();
             openFile.getExtensionFilters().add(new FileChooser.ExtensionFilter("Open Image File", new String[]{"*png", "*jpg"}));
-            File file = openFile.showOpenDialog(this.main_form.getScene().getWindow());
+
+            File file = openFile.showOpenDialog(main_form.getScene().getWindow());
            if (file != null) {
-                //data.path = file.getAbsolutePath();
-                this.image = new Image(file.toURI().toString(), 120.0, 127.0, false, true);
-                this.imageView.setImage(this.image);
+
+                image = new Image(file.toURI().toString(), 120.0, 127.0, false, true);
+                imageView.setImage(image);
            }
     }
 
@@ -192,9 +193,9 @@ public class EmployeeFormController {
         String departmentId = cmbDepartmentId.getValue();
         String path = image.getUrl();
 
-        if (isValied()) {
-            Employee employee = new Employee(id, name, nic, address, email, tel, dob, registerDate, position, salary, departmentId, path);
+        Employee employee = new Employee(id, name, nic, address, email, tel, dob, registerDate, position, salary, departmentId, path);
 
+        if (isValied()) {
             try {
                 boolean isSaved = EmployeeRepo.save(employee);
                 if (isSaved) {
@@ -366,7 +367,7 @@ public class EmployeeFormController {
     }
 
     public boolean isValied(){
-        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.CID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.EID, txtId)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NIC, txtNic)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.ADDRESS, txtAddress)) return false;

@@ -67,4 +67,43 @@ public class SalaryRepo {
         }
         return salaryList;
     }
+
+    public static List<Double> getSalaryDetail(String id) throws SQLException {
+        String sql = "SELECT (s.basicSalary + s.allowences) AS grossSalary, (s.basicSalary + s.allowences - s.advance) AS netPayable FROM employee e JOIN salary s ON e.employeeId = s.employeeId WHERE e.employeeId = ?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstm.setObject(1, id);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        List<Double> salaryList = new ArrayList<>();
+
+        while (resultSet.next()) {
+            double grossSalary = Double.parseDouble(resultSet.getString(1));
+            double netPayable = Double.parseDouble(resultSet.getString(2));
+
+            salaryList.add(grossSalary);
+            salaryList.add(netPayable);
+
+        }
+        return salaryList;
+    }
+
+/*
+    SELECT
+    e.employeeId,
+    e.name,
+    s.basicSalary,
+    s.allowences,
+    s.advance,
+            (s.basicSalary + s.allowences) AS grossSalary,
+    (s.basicSalary + s.allowences - s.advance) AS netPayable
+    FROM
+    employee e
+    JOIN
+    salary s ON e.employeeId = s.employeeId;
+*/
+
+
 }

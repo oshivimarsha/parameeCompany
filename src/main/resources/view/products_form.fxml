@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,18 +13,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="916.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.parameeIceCream.controller.ProductsFormController">
+<AnchorPane fx:id="rootNode" prefHeight="916.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.parameeIceCream.controller.ProductsFormController">
    <children>
       <AnchorPane prefHeight="73.0" prefWidth="1300.0" style="-fx-background-color: #fc3468;">
          <children>
-            <Label layoutX="513.0" layoutY="19.0" text="Products Manage" textFill="WHITE">
+            <Label layoutX="580.0" layoutY="19.0" text="Products" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblProductCart" layoutX="10.0" layoutY="127.0" prefHeight="418.0" prefWidth="1276.0" styleClass="shadow">
+      <TableView fx:id="tblProductCart" layoutX="10.0" layoutY="166.0" prefHeight="418.0" prefWidth="1276.0" styleClass="shadow">
         <columns>
           <TableColumn fx:id="colId" prefWidth="106.0" text="Id" />
           <TableColumn fx:id="colName" prefWidth="195.0" text="Name" />
@@ -38,7 +39,7 @@
             <URL value="@../css/sidePannel.css" />
          </stylesheets>
       </TableView>
-      <AnchorPane layoutX="12.0" layoutY="560.0" prefHeight="335.0" prefWidth="1276.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
+      <AnchorPane layoutX="12.0" layoutY="600.0" prefHeight="303.0" prefWidth="1276.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
          <children>
             <AnchorPane fx:id="main_form" layoutX="1010.0" layoutY="41.0" prefHeight="197.0" prefWidth="208.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../css/sidePannel.css">
                <children>
@@ -95,31 +96,7 @@
                </font>
             </Label>
             <Label fx:id="lblDepartmentName" layoutX="688.0" layoutY="170.0" prefHeight="35.0" prefWidth="260.0" style="-fx-background-color: white;" />
-            <JFXButton id="sale" layoutX="383.0" layoutY="260.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Save" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icon/save.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton id="sale" layoutX="515.0" layoutY="260.0" onAction="#btnUpdateOnAction" prefHeight="45.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Update" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icon/update.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton id="sale" layoutX="642.0" layoutY="260.0" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Delete" textFill="WHITE">
+            <JFXButton id="sale" layoutX="169.0" layoutY="238.0" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Delete" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -131,39 +108,59 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton id="sale" layoutX="767.0" layoutY="260.0" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Clear" textFill="WHITE">
+            <JFXButton id="sale" layoutX="48.0" layoutY="238.0" onAction="#btnUpdateOnAction" prefHeight="45.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Update" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icon/clear.png" />
+                        <Image url="@../icon/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton id="sale" fx:id="btnReport" layoutX="298.0" layoutY="238.0" onAction="#btnReportPrintOnAction" prefHeight="45.0" prefWidth="123.0" stylesheets="@../css/button.css" text="Report" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/reports.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
          </children>
       </AnchorPane>
-      <Label layoutX="23.0" layoutY="94.0" text="Search :">
+      <Label layoutX="23.0" layoutY="124.0" text="Search :">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSearchHere" layoutX="95.0" layoutY="86.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Product Name" />
-      <ImageView fitHeight="20.0" fitWidth="31.0" layoutX="294.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="txtSearchHere" layoutX="95.0" layoutY="116.0" onAction="#txtSearchHereOnAction" prefHeight="35.0" prefWidth="232.0" promptText="Search Product Name" />
+      <ImageView fitHeight="20.0" fitWidth="31.0" layoutX="294.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/search.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtId" layoutX="172.0" layoutY="592.0" onKeyReleased="#txtIdOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
-      <TextField fx:id="txtName" layoutX="172.0" layoutY="636.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
-      <Label layoutX="31.0" layoutY="690.0" text="Category     : ">
+      <TextField fx:id="txtId" layoutX="172.0" layoutY="635.0" onKeyReleased="#txtIdOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtName" layoutX="172.0" layoutY="679.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="35.0" prefWidth="260.0" />
+      <Label layoutX="31.0" layoutY="732.0" text="Category     : ">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDescription" layoutX="172.0" layoutY="727.0" prefHeight="35.0" prefWidth="260.0" />
-      <TextField fx:id="txtCategory" layoutX="172.0" layoutY="683.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtDescription" layoutX="172.0" layoutY="770.0" prefHeight="35.0" prefWidth="260.0" />
+      <TextField fx:id="txtCategory" layoutX="172.0" layoutY="726.0" prefHeight="35.0" prefWidth="260.0" />
+      <JFXButton id="sale" layoutX="962.0" layoutY="98.0" onAction="#btnProductManageOnAction" prefHeight="45.0" prefWidth="210.0" style="-fx-background-color: grey;" stylesheets="@../css/button.css" text="Products Manage" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

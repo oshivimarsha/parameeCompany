@@ -2,7 +2,6 @@ package lk.ijse.parameeIceCream.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -86,7 +85,7 @@ public class SidePannelFormController {
     }
 
     public void btnReportsOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane reportPane = FXMLLoader.load(this.getClass().getResource("/view/report_form.fxml"));
+        AnchorPane reportPane = FXMLLoader.load(this.getClass().getResource("/view/Productmanage.fxml"));
         childRootNode.getChildren().clear();
         childRootNode.getChildren().add(reportPane);
     }

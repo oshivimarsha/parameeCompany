@@ -30,13 +30,14 @@ public class LoginFormController {
         String userId = txtUserName.getText();
         String pw = txtPassword.getText();
 
-        //if (isValied()) {
             try {
-                checkCredential(userId, pw);
+                if (isValied()) {
+                    checkCredential(userId, pw);
+                }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-       // }
+
     }
 
     private void checkCredential(String userId, String password) throws SQLException, IOException {
@@ -63,15 +64,7 @@ public class LoginFormController {
         }
     }
     private void navigateToTheDashboard(String user_name) throws IOException {
-        /*
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/sidepannel_form.fxml"));
 
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Dashboard Form");*/
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/sidepannel_form.fxml"));
         Parent dashboardRoot = loader.load();
         SidePannelFormController controller = loader.getController();
@@ -112,7 +105,7 @@ public class LoginFormController {
 
     public boolean isValied(){
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtUserName)) return false;
-        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PASSWORD, txtPassword)) return false;
+        //if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PASSWORD, txtPassword)) return false;
         return true;
     }
 

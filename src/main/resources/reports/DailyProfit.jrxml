@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProductManage" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13d258bc-233d-4800-94b0-67f8fd8e76ad">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (14)"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+    o.orderDate,
+    SUM(opd.unitPrice * opd.qty) AS totalRevenue,
+    (SELECT SUM(ipd.unitPrice * ipd.qty)
+     FROM orders o2
+     JOIN orderProductDetail opd2 ON o2.orderId = opd2.orderId
+     JOIN ingredientProductDetail ipd ON opd2.productId = ipd.productId
+     WHERE o2.orderDate = o.orderDate) AS totalCost,
+    (SUM(opd.unitPrice * opd.qty) - 
+     (SELECT SUM(ipd.unitPrice * ipd.qty)
+      FROM orders o2
+      JOIN orderProductDetail opd2 ON o2.orderId = opd2.orderId
+      JOIN ingredientProductDetail ipd ON opd2.productId = ipd.productId
+      WHERE o2.orderDate = o.orderDate)) AS profit
+FROM orders o
+JOIN orderProductDetail opd ON o.orderId = opd.orderId
+GROUP BY o.orderDate;]]>
+	</queryString>
+	<field name="orderDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="orderDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="orderDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orders"/>
+	</field>
+	<field name="totalRevenue" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="totalRevenue"/>
+		<property name="com.jaspersoft.studio.field.label" value="totalRevenue"/>
+	</field>
+	<field name="totalCost" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="totalCost"/>
+		<property name="com.jaspersoft.studio.field.label" value="totalCost"/>
+	</field>
+	<field name="profit" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="profit"/>
+		<property name="com.jaspersoft.studio.field.label" value="profit"/>
+	</field>
+	<group name="orderDate">
+		<groupExpression><![CDATA[$F{orderDate}]]></groupExpression>
+	</group>
+	<group name="totalRevenue">
+		<groupExpression><![CDATA[$F{totalRevenue}]]></groupExpression>
+	</group>
+	<group name="totalCost">
+		<groupExpression><![CDATA[$F{totalCost}]]></groupExpression>
+	</group>
+	<group name="profit">
+		<groupExpression><![CDATA[$F{profit}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="-20" width="600" height="93" uuid="c1b6cbc3-67dd-4d57-84c6-b3c8b854a509"/>
+				<imageExpression><![CDATA["/home/oshi/Documents/IJSE/OOP/parameeIceCream/src/main/resources/reportImg/Blue and Yellow Minimalist Employee of the Month Certificate(1).png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="312" y="26" width="229" height="50" uuid="1cb66847-e611-429c-9538-51893e5bac8f"/>
+				<textElement>
+					<font size="37" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARAMEE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="380" y="-10" width="185" height="40" uuid="b15203b2-093d-4fb3-87b7-d1140c40d39d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dairy Products...]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle radius="16">
+				<reportElement x="-13" y="20" width="580" height="36" forecolor="#F7B2C9" backcolor="#FF93AC" uuid="74fbc292-a372-4380-a736-dcfac8f34571"/>
+				<graphicElement>
+					<pen lineColor="#FF6289"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="23" width="100" height="30" uuid="2a70ae11-c7fc-4987-9174-7add6f34f53a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="241cba00-5d7d-43e7-828a-d3e23a15395c"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="23" width="130" height="30" uuid="8a114dd2-d703-42bb-b38e-7a2f98386d3c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4958566-21bc-4730-9e9c-7e045f83f55a"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Revenue]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="23" width="100" height="30" uuid="f5cf80bb-06cb-4fd3-9ad3-2a7b7a3e846b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="926a6d24-ccc5-45eb-8f6b-f9acbd151177"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="23" width="100" height="30" uuid="8b9a9ff2-6d3d-4058-838e-04a22c9d2746">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="38f3a47d-b377-4b5b-bd10-94d69ca43986"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profit]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="157" y="3" width="153" height="30" uuid="995604a4-6de0-4db4-a3e9-9a65d3c8f3ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="61a8a5b1-9af6-44c8-b3f8-ee770d7a733c"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalRevenue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="4" width="130" height="30" uuid="a7f5f4d8-3224-4efb-a42f-89cd810e5d48">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb8d57b1-707e-41f6-a98e-31d58dd10b24"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalCost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="3" width="110" height="30" uuid="0cfc7342-7550-44c4-87b3-ed10b1f3042b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5a7d44f-4446-4ae7-8620-0a94d273b69f"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{profit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="3" width="153" height="30" uuid="b032bb70-417e-4be1-a3be-52a674e69aa4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="57d1df7e-394c-4bfb-855c-73dc3a668ad7"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orderDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="26" width="595" height="28" uuid="9ade464b-a844-4aa3-8881-1f38986c7944"/>
+				<imageExpression><![CDATA["/home/oshi/Documents/IJSE/OOP/parameeIceCream/src/main/resources/reportImg/Purple and Pink Simple Invoice Business Document(2).png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>
