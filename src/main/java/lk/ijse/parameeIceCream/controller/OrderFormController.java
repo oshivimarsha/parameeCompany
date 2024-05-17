@@ -18,6 +18,7 @@ import lk.ijse.parameeIceCream.db.DbConnection;
 import lk.ijse.parameeIceCream.model.*;
 import lk.ijse.parameeIceCream.model.tm.OrderTm;
 import lk.ijse.parameeIceCream.repository.*;
+import lk.ijse.parameeIceCream.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -167,6 +168,7 @@ public class OrderFormController {
         lblTotal.setText("");
         txtAmount.setText("");
         lblChange.setText("");
+        getCurrentOrderId();
 
     }
 
@@ -180,46 +182,51 @@ public class OrderFormController {
         JFXButton btnRemove = new JFXButton("remove");
         btnRemove.setCursor(Cursor.HAND);
 
-        btnRemove.setOnAction((e) -> {
-            ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
-            ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+            btnRemove.setOnAction((e) -> {
+                ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
-            if(type.orElse(no) == yes) {
-                int selectedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
-                obList.remove(selectedIndex);
+                if (type.orElse(no) == yes) {
+                    int selectedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
+                    obList.remove(selectedIndex);
 
-                tblOrderCart.refresh();
-                calculateNetTotal();
+                    tblOrderCart.refresh();
+                    calculateNetTotal();
 
+                }
+            });
+
+            for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+                if (id.equals(colId.getCellData(i))) {
+
+                    OrderTm tm = obList.get(i);
+                    qty += tm.getQty();
+                    price = qty * unitPrice;
+
+                    tm.setQty(qty);
+                    tm.setPrice(price);
+
+                    tblOrderCart.refresh();
+
+                    calculateNetTotal();
+                    return;
+                }
             }
-        });
 
-        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-            if(id.equals(colId.getCellData(i))) {
+            //if (isValid()) {
+                OrderTm tm = new OrderTm(id, name, qty, unitPrice, price, btnRemove);
+                obList.add(tm);
+            /*} else {
+                new Alert(Alert.AlertType.CONFIRMATION, "Wrong Input!").show();
+            }*/
 
-                OrderTm tm = obList.get(i);
-                qty += tm.getQty();
-                price = qty * unitPrice;
-
-                tm.setQty(qty);
-                tm.setPrice(price);
-
-                tblOrderCart.refresh();
-
+                tblOrderCart.setItems(obList);
                 calculateNetTotal();
-                return;
-            }
-        }
+                clearFields();
+                txtProductName.requestFocus();
 
-        OrderTm tm = new OrderTm(id, name, qty, unitPrice, price, btnRemove);
-        obList.add(tm);
-
-        tblOrderCart.setItems(obList);
-        calculateNetTotal();
-        clearFields();
-        txtProductName.requestFocus();
     }
 
     private double calculateNetTotal() {
@@ -352,21 +359,30 @@ public class OrderFormController {
         lblQtyOnHand.setText("");
         txtQty.setText("");
         imageView.setImage(null);
+
     }
 
     public void txtQtyOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.QTY, txtQty);
     }
 
     public void txtTelOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.TEL, txtCustomerTel);
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtProductName);
     }
 
     public void txtAmountOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtAmount);
+    }
 
+    public boolean isValid() {
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.QTY, txtQty)) return true;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.TEL, txtCustomerTel)) return true;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtProductName)) return true;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtAmount)) return true;
+        return false;
     }
 }

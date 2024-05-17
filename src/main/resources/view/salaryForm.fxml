@@ -119,7 +119,7 @@
          <children>
             <ImageView fx:id="imageView" fitHeight="236.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true" />
          </children></Pane>
-      <JFXButton id="sale" layoutX="700.0" layoutY="142.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Save" textFill="WHITE">
+      <JFXButton id="sale" fx:id="btnSave" layoutX="700.0" layoutY="142.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

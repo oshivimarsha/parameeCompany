@@ -16,6 +16,7 @@ import lk.ijse.parameeIceCream.model.tm.CustomerTm;
 import lk.ijse.parameeIceCream.model.tm.SupplierTm;
 import lk.ijse.parameeIceCream.repository.CustomerRepo;
 import lk.ijse.parameeIceCream.repository.SupplierRepo;
+import lk.ijse.parameeIceCream.util.Regex;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.sql.PreparedStatement;
@@ -115,17 +116,21 @@ public class SuppliersFormController {
         String email = txtEmail.getText();
         String tel = txtTel.getText();
 
-        Supplier supplier = new Supplier(id, name, nic, address, email, tel);
+        if (isValied()) {
+            Supplier supplier = new Supplier(id, name, nic, address, email, tel);
 
-        try {
-            boolean isSaved = SupplierRepo.save(supplier);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Supplier Saved!").show();
-                clearFields();
-                initialize();
+            try {
+                boolean isSaved = SupplierRepo.save(supplier);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Supplier Saved!").show();
+                    clearFields();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Wrong Input!").show();
         }
     }
 
@@ -193,26 +198,36 @@ public class SuppliersFormController {
     }
 
     public void txtIdOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.SID, txtId);
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName);
     }
 
     public void txtNicOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NIC, txtNIC);
     }
 
     public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.EMAIL, txtEmail);
     }
 
     public void txtTelOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.TEL, txtTel);
     }
 
     public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.ADDRESS, txtAddress);
+    }
 
+    public boolean isValied(){
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.CID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NIC, txtNIC)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.ADDRESS, txtAddress)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.TEL, txtTel)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.EMAIL, txtEmail)) return false;
+        return true;
     }
 }

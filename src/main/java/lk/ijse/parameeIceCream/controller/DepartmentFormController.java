@@ -15,6 +15,7 @@ import lk.ijse.parameeIceCream.model.tm.CustomerTm;
 import lk.ijse.parameeIceCream.model.tm.DepartmentTm;
 import lk.ijse.parameeIceCream.repository.CustomerRepo;
 import lk.ijse.parameeIceCream.repository.DepartmentRepo;
+import lk.ijse.parameeIceCream.util.Regex;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.sql.SQLException;
@@ -86,17 +87,21 @@ public class DepartmentFormController {
         String name = txtName.getText();
         String description = txtDescription.getText();
 
-        Department department = new Department(id, name, description);
+        if (isValied()) {
+            Department department = new Department(id, name, description);
 
-        try {
-            boolean isSaved = DepartmentRepo.save(department);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Department saved!").show();
-                clearFields();
-                initialize();
+            try {
+                boolean isSaved = DepartmentRepo.save(department);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Department saved!").show();
+                    clearFields();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Wrong Input!").show();
         }
     }
 
@@ -166,10 +171,16 @@ public class DepartmentFormController {
     }
 
     public void txtIdOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.DID, txtId);
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName);
+    }
 
+    public boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.CID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
+        return true;
     }
 }

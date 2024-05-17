@@ -27,6 +27,7 @@ import lk.ijse.parameeIceCream.repository.CustomerRepo;
 import lk.ijse.parameeIceCream.repository.EmployeeRepo;
 import lk.ijse.parameeIceCream.repository.ProductRepo;
 import lk.ijse.parameeIceCream.repository.SalaryRepo;
+import lk.ijse.parameeIceCream.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -72,6 +73,7 @@ public class SalaryFormController {
     public ImageView imageView;
     public JFXButton btnBack;
     public JFXButton btnReport;
+    public JFXButton btnSave;
 
 
     public void initialize() {
@@ -121,25 +123,25 @@ public class SalaryFormController {
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String id = txtId.getText();
-       // String name = txtName.getText();
-       // String nic = txtNic.getText();
         double basicSalary = Double.parseDouble(txtBasicSalary.getText());
         double allowences = Double.parseDouble((txtAllowances.getText()));
-        //double grossSalary = Double.parseDouble(txtGrossSalary.getText());
         double advance = Double.parseDouble(txtAdvance.getText());
-       // String path = image.getUrl();
 
-        Salary salary = new Salary(id, basicSalary, allowences, advance);
+        if (isValied()) {
+            Salary salary = new Salary(id, basicSalary, allowences, advance);
 
-        try {
-            boolean isSaved = SalaryRepo.save(salary);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Salary saved!").show();
-                clearFields();
-                initialize();
+            try {
+                boolean isSaved = SalaryRepo.save(salary);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Salary saved!").show();
+                    clearFields();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Wrong Input!").show();
         }
     }
 
@@ -202,38 +204,31 @@ public class SalaryFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        txtName.requestFocus();
     }
 
     public void txtNameOnAction(ActionEvent actionEvent) {
-
+        txtNic.requestFocus();
     }
 
     public void txtBasicSalaryOnAction(ActionEvent actionEvent) {
-
+        txtAllowances.requestFocus();
     }
 
     public void txtAllowencesOnAction(ActionEvent actionEvent) {
-
-    }
-
-    public void txtGrossSalaryOnAction(ActionEvent actionEvent) {
-
+        txtAdvance.requestFocus();
     }
 
     public void txtAdvanceOnAction(ActionEvent actionEvent) {
 
     }
 
-    public void txtNetPatableOnAction(ActionEvent actionEvent) {
-
-    }
-
     public void txtNicOnAction(ActionEvent actionEvent) {
-
+        txtBasicSalary.requestFocus();
     }
 
     public void txtSearchHereOnAction(ActionEvent actionEvent) {
-
+        btnSave.requestFocus();
     }
 
     public void btnReportPrintOnAction(ActionEvent actionEvent) throws JRException, SQLException {
@@ -256,26 +251,36 @@ public class SalaryFormController {
     }
 
     public void txtIdOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.SID, txtId);
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName);
     }
 
     public void txtSalaryOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtBasicSalary);
     }
 
     public void txtAllowencesOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtAllowances);
     }
 
     public void txtAdvance(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtAdvance);
     }
 
     public void txtNicOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NIC, txtNic);
+    }
 
+    public boolean isValied(){
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.SID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NIC, txtNic)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtBasicSalary)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtAllowances)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtAdvance)) return false;
+        return true;
     }
 }

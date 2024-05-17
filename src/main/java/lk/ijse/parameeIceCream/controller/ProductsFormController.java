@@ -21,6 +21,7 @@ import lk.ijse.parameeIceCream.repository.CustomerRepo;
 import lk.ijse.parameeIceCream.repository.DepartmentRepo;
 import lk.ijse.parameeIceCream.repository.EmployeeRepo;
 import lk.ijse.parameeIceCream.repository.ProductRepo;
+import lk.ijse.parameeIceCream.util.Regex;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.io.File;
@@ -166,17 +167,21 @@ public class ProductsFormController {
         String departmentId = cmbDepartmentId.getValue();
         String path = image.getUrl();
 
-        Product product = new Product(id, name, category, description, qtyAvailable, unitPrice, departmentId, path);
+        if (isValid()) {
+            Product product = new Product(id, name, category, description, qtyAvailable, unitPrice, departmentId, path);
 
-        try {
-            boolean isSaved = ProductRepo.save(product);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Product saved!").show();
-                clearFields();
-                initialize();
+            try {
+                boolean isSaved = ProductRepo.save(product);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Product saved!").show();
+                    clearFields();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Wrong Input!").show();
         }
     }
 
@@ -251,18 +256,26 @@ public class ProductsFormController {
     }
 
     public void txtQtyOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.QTY, txtQtyAvailable);
     }
 
     public void txtPriceOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtUnitPrice);
     }
 
     public void txtIdOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PID, txtId);
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName);
+    }
 
+    public boolean isValid() {
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.QTY, txtQtyAvailable)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtUnitPrice)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
+        return true;
     }
 }

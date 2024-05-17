@@ -22,6 +22,7 @@ import lk.ijse.parameeIceCream.repository.CustomerRepo;
 import lk.ijse.parameeIceCream.repository.DepartmentRepo;
 import lk.ijse.parameeIceCream.repository.EmployeeRepo;
 import lk.ijse.parameeIceCream.repository.MachineRepo;
+import lk.ijse.parameeIceCream.util.Regex;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.io.File;
@@ -122,17 +123,21 @@ public class MachineFormController {
         String departmentId = cmbDepartmentId.getValue();
         String path = image.getUrl();
 
-        Machine machine = new Machine(id, type, serialNumber, purchaseDate, purchaseCost, maintainCost, departmentId, path);
+        if (isValid()) {
+            Machine machine = new Machine(id, type, serialNumber, purchaseDate, purchaseCost, maintainCost, departmentId, path);
 
-        try {
-            boolean isSaved = MachineRepo.save(machine);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Machine saved!").show();
-                clearFields();
-                initialize();
+            try {
+                boolean isSaved = MachineRepo.save(machine);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Machine saved!").show();
+                    clearFields();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Wrong Input!").show();
         }
     }
 
@@ -269,6 +274,11 @@ public class MachineFormController {
     }
 
     public void txtIdOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.MID, txtId);
+    }
 
+    public boolean isValid() {
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.MID, txtId)) return false;
+        return true;
     }
 }

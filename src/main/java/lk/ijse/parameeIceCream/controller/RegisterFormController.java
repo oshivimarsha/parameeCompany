@@ -11,6 +11,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.parameeIceCream.db.DbConnection;
+import lk.ijse.parameeIceCream.util.Regex;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -31,17 +32,20 @@ public class RegisterFormController {
         String password = txtPw.getText();
         String email = txtEmail.getText();
 
-        try {
-            boolean isSaved = saveUser(name, password, email);
-            if(isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "user saved!").show();
-                navigateLogin();
+        if (isValid()) {
+            try {
+                boolean isSaved = saveUser(name, password, email);
+                if(isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "user saved!").show();
+                    navigateLogin();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (IOException e) {
+
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (IOException e) {
-
-
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Wrong Input!").show();
         }
     }
 
@@ -78,14 +82,21 @@ public class RegisterFormController {
     }
 
     public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PASSWORD, txtPw);
     }
 
     public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
-
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.EMAIL, txtEmail);
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName);
+    }
 
+    public boolean isValid() {
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PASSWORD, txtPw)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.EMAIL, txtEmail)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
+        return true;
     }
 }
