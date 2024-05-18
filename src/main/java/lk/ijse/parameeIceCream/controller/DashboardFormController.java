@@ -89,18 +89,6 @@ public class DashboardFormController {
         setTime();
     }
 
-  /*  public void iniLineChart() {
-        XYChart.Series series = new XYChart.Series();
-        series.getData().add(new XYChart.Data("Order Count", orderCount));
-        series.getData().add(new XYChart.Data("Employee Count", employeeCount));
-        series.getData().add(new XYChart.Data("Customer Count", customerCount));
-        series.getData().add(new XYChart.Data("Thursday", 1));
-        series.getData().add(new XYChart.Data("Friday", 40));
-        series.getData().add(new XYChart.Data("Saturday", 10));
-        series.getData().add(new XYChart.Data("Sunday", 80));
-        lineChart.getData().addAll(series);
-    } */
-
     public void lineChart(){
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Paramee Company");
@@ -157,15 +145,7 @@ public class DashboardFormController {
         }
         lineChart.getData().addAll(series1);
     }
-    public void iniPieChart() {
-        /*ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                //new PieChart.Data("Employee", 20),
-                new PieChart.Data("Order Count", orderCount),
-                new PieChart.Data("Employee Count", employeeCount),
-                new PieChart.Data("Customer Count", customerCount)
-        );
-        pieChart.setData(pieChartData);*/
-    }
+
 
     private void setDate() {
         LocalDate now = LocalDate.now();

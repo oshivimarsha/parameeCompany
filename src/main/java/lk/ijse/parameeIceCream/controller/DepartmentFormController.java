@@ -32,6 +32,8 @@ public class DepartmentFormController {
     public TableColumn<?, ?> colName;
     public TableColumn<?, ?> colDescription;
     public TextField txtSearchHere;
+    public TextField txtNumOfEmployee;
+    public TableColumn<?, ?> colNumOfEmp;
 
     public void initialize() {
         setCellValueFactory();
@@ -64,7 +66,8 @@ public class DepartmentFormController {
                 DepartmentTm tm = new DepartmentTm(
                         department.getId(),
                         department.getName(),
-                        department.getDescription()
+                        department.getDescription(),
+                        department.getNumOfEmp()
                 );
 
                 obList.add(tm);
@@ -80,15 +83,17 @@ public class DepartmentFormController {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colNumOfEmp.setCellValueFactory(new PropertyValueFactory<>("numOfEmp"));
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String id = txtId.getText();
         String name = txtName.getText();
         String description = txtDescription.getText();
+        int emp = Integer.parseInt(txtNumOfEmployee.getText());
 
         if (isValied()) {
-            Department department = new Department(id, name, description);
+            Department department = new Department(id, name, description, emp);
 
             try {
                 boolean isSaved = DepartmentRepo.save(department);
@@ -109,8 +114,9 @@ public class DepartmentFormController {
         String id = txtId.getText();
         String name = txtName.getText();
         String description = txtDescription.getText();
+        int emp = Integer.parseInt(txtNumOfEmployee.getText());
 
-        Department department = new Department(id, name, description);
+        Department department = new Department(id, name, description, emp);
 
         boolean isUpdated = DepartmentRepo.update(department);
         if(isUpdated) {
@@ -139,6 +145,8 @@ public class DepartmentFormController {
         txtId.setText("");
         txtName.setText("");
         txtDescription.setText("");
+        txtNumOfEmployee.setText("");
+        txtSearchHere.setText("");
     }
 
     public void txtSearchOnAction(ActionEvent actionEvent) throws SQLException {
@@ -149,22 +157,22 @@ public class DepartmentFormController {
             txtId.setText(department.getId());
             txtName.setText(department.getName());
             txtDescription.setText(department.getDescription());
+            txtNumOfEmployee.setText(String.valueOf(department.getNumOfEmp()));
         } else {
-            new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
+            new Alert(Alert.AlertType.INFORMATION, "department not found!").show();
         }
     }
 
 
-
-
     public void txtSearchHereOnAction(ActionEvent actionEvent) throws SQLException {
-        String id = txtSearchHere.getText();
+        String name = txtSearchHere.getText();
 
-        Department department = DepartmentRepo.searchById(id);
+        Department department = DepartmentRepo.searchByName(name);
         if (department != null) {
             txtId.setText(department.getId());
             txtName.setText(department.getName());
             txtDescription.setText(department.getDescription());
+            txtNumOfEmployee.setText(String.valueOf(department.getNumOfEmp()));
         } else {
             new Alert(Alert.AlertType.INFORMATION, "department not found!").show();
         }
@@ -179,7 +187,7 @@ public class DepartmentFormController {
     }
 
     public boolean isValied() {
-        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.CID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.DID, txtId)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
         return true;
     }

@@ -12,25 +12,27 @@ import java.util.List;
 
 public class DepartmentRepo {
     public static boolean save(Department department) throws SQLException {
-        String sql = "INSERT INTO department VALUES(?, ?, ?)";
+        String sql = "INSERT INTO department VALUES(?, ?, ?, ?)";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setObject(1, department.getId());
         pstm.setObject(2, department.getName());
         pstm.setObject(3, department.getDescription());
+        pstm.setObject(4, department.getNumOfEmp());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Department department) throws SQLException {
-        String sql = "UPDATE department SET departmentId = ?, description = ? WHERE name = ?";
+        String sql = "UPDATE department SET departmentId = ?, description = ?, numberOfEmployees = ? WHERE name = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setObject(1, department.getId());
         pstm.setObject(2, department.getDescription());
-        pstm.setObject(3, department.getName());
+        pstm.setObject(3, department.getNumOfEmp());
+        pstm.setObject(4, department.getName());
 
         return pstm.executeUpdate() > 0;
     }
@@ -58,8 +60,9 @@ public class DepartmentRepo {
             String id = resultSet.getString(1);
             String name = resultSet.getString(2);
             String description = resultSet.getString(3);
+            int emp = Integer.parseInt(resultSet.getString(4));
 
-            Department department = new Department(id, name, description);
+            Department department = new Department(id, name, description, emp);
             depList.add(department);
         }
         return depList;
@@ -78,8 +81,9 @@ public class DepartmentRepo {
             String dId = resultSet.getString(1);
             String dName = resultSet.getString(2);
             String description = resultSet.getString(3);
+            int emp = Integer.parseInt(resultSet.getString(4));
 
-            Department department = new Department(dId, dName, description);
+            Department department = new Department(dId, dName, description, emp);
 
             return department;
         }
@@ -100,8 +104,9 @@ public class DepartmentRepo {
             String dId = resultSet.getString(1);
             String dName = resultSet.getString(2);
             String description = resultSet.getString(3);
+            int emp = Integer.parseInt(resultSet.getString(4));
 
-            Department department = new Department(dId, dName, description);
+            Department department = new Department(dId, dName, description, emp);
 
             return department;
         }

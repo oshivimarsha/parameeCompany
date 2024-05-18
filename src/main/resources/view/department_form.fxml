@@ -48,7 +48,7 @@
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtDescription1" layoutX="469.0" layoutY="259.0" prefHeight="35.0" prefWidth="334.0" />
+            <TextField fx:id="txtNumOfEmployee" layoutX="469.0" layoutY="259.0" prefHeight="35.0" prefWidth="334.0" />
             <JFXButton id="sale" layoutX="921.0" layoutY="57.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="105.0" stylesheets="@../css/button.css" text="Save" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -104,7 +104,7 @@
           <TableColumn fx:id="colId" prefWidth="152.0" text="Id" />
           <TableColumn fx:id="colName" prefWidth="392.0" text="name" />
             <TableColumn fx:id="colDescription" prefWidth="425.0" text="Description" />
-            <TableColumn fx:id="colDescription1" prefWidth="302.0" text="Number Of Employee" />
+            <TableColumn fx:id="colNumOfEmp" prefWidth="302.0" text="Number Of Employee" />
         </columns>
          <stylesheets>
             <URL value="@../css/tableView.css" />

@@ -12,19 +12,19 @@ public class CreateProductRepo {
         connection.setAutoCommit(false);
 
         try {
-            System.out.println("product -  "+cp.getProduct());
+          //  System.out.println("product -  "+cp.getProduct());
             boolean isProductSaved = ProductRepo.save(cp.getProduct());
-            System.out.println(isProductSaved);
+          //  System.out.println(isProductSaved);
             if (isProductSaved) {
-                System.out.println( "IP List = "+cp.getIPList());
+             //   System.out.println( "IP List = "+cp.getIPList());
                 boolean isQtyUpdated = IngredientRepo.update(cp.getIPList());
 
-                System.out.println(isQtyUpdated);
+             //   System.out.println(isQtyUpdated);
                 if (isQtyUpdated) {
-                    System.out.println(cp.getIPList());
+                 //   System.out.println(cp.getIPList());
                     boolean isProductrDetailSaved = IngredientsProductRepo.save(cp.getIPList());
 
-                    System.out.println(isProductrDetailSaved);
+                  //  System.out.println(isProductrDetailSaved);
                     if (isProductrDetailSaved) {
                         connection.commit();
                         return true;
@@ -46,19 +46,19 @@ public class CreateProductRepo {
         connection.setAutoCommit(false);
 
         try {
-            System.out.println("product -  "+cp.getProduct());
+
             boolean isProductSaved = ProductRepo.update(cp.getProduct());
-            System.out.println(isProductSaved);
+
             if (isProductSaved) {
-                System.out.println( "IP List = "+cp.getIPList());
+               // System.out.println( "IP List = "+cp.getIPList());
                 boolean isQtyUpdated = IngredientRepo.updatePlus(cp.getIPList());
 
-                System.out.println(isQtyUpdated);
+                //  System.out.println(isQtyUpdated);
                 if (isQtyUpdated) {
-                    System.out.println(cp.getIPList());
+                  //  System.out.println(cp.getIPList());
                     boolean isProductrDetailSaved = IngredientsProductRepo.update(cp.getIPList());
 
-                    System.out.println(isProductrDetailSaved);
+                  //  System.out.println(isProductrDetailSaved);
                     if (isProductrDetailSaved) {
                         connection.commit();
                         return true;

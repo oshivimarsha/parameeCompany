@@ -206,11 +206,14 @@
             <URL value="@../css/sidePannel.css" />
          </stylesheets>
       </TableView>
-      <JFXButton fx:id="btnBack" layoutX="32.0" layoutY="10.0" onAction="#btnBackOnAction" prefHeight="52.0" prefWidth="72.0" style="-fx-background-color: #fc3468;" text=" " />
-      <ImageView fitHeight="45.0" fitWidth="53.0" layoutX="46.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icon/back.png" />
-         </image>
-      </ImageView>
+      <JFXButton fx:id="btnBack" layoutX="32.0" layoutY="10.0" onAction="#btnBackOnAction" prefHeight="54.0" prefWidth="92.0" style="-fx-background-color: #fc3468;" text=" ">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -14,10 +14,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import lk.ijse.parameeIceCream.db.DbConnection;
 import lk.ijse.parameeIceCream.model.*;
 import lk.ijse.parameeIceCream.model.tm.ProductManageTm;
 import lk.ijse.parameeIceCream.repository.*;
 import lk.ijse.parameeIceCream.util.Regex;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.io.File;
@@ -57,6 +62,7 @@ public class ProductManageFormController {
     public JFXButton btnBack;
     public AnchorPane rootNode;
     public TextField txtProductSearch;
+    public JFXButton btnReport;
 
     private ObservableList<ProductManageTm> pList = FXCollections.observableArrayList();
 
@@ -304,7 +310,24 @@ public class ProductManageFormController {
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        clearFields();
+    }
 
+    private void clearFields() {
+        txtId.setText("");
+        txtName.setText("");
+        txtCategory.setText("");
+        txtDescription.setText("");
+        txtQtyAvailable.setText("");
+        cmbDepartmentId.setValue(null);
+        lblDepartmentName.setText("");
+        txtProductSearch.setText("");
+        txtIngredientsName.setText("");
+        lblIngredientsId.setText("");
+        lblUnitPrice.setText("");
+        lblQtyOnHand.setText("");
+        txtQty.setText("");
+        imageView.setImage(null);
     }
 
     private double calculateNetTotal() {
@@ -386,17 +409,14 @@ public class ProductManageFormController {
             }
         });
 
-        // Get the product name from the search text field
         String name = txtProductSearch.getText();
 
-        // Search for the product by name
         Product product = ProductRepo.searchByName(name);
         if (product != null) {
-            // Fetch related data
+
             List<IngredientsProduct> ingredientsProduct = IngredientsProductRepo.searchById(product.getId());
             Department department = DepartmentRepo.searchById(product.getDepartmentId());
 
-            // Update the UI with product details
             txtId.setText(product.getId());
             txtName.setText(product.getName());
             txtCategory.setText(product.getCategory());
@@ -408,10 +428,8 @@ public class ProductManageFormController {
             imageView.setImage(image);
             lblProductUnitPrice.setText(String.valueOf(product.getUnitPrice()));
 
-            // Clear the existing items in pList
             pList.clear();
 
-            // Populate the table with ingredients
             for (IngredientsProduct inp : ingredientsProduct) {
                 List<Ingredient> ingredientList = IngredientRepo.searchById(inp.getIngredientId());
                 for (Ingredient ingre : ingredientList) {
@@ -425,19 +443,14 @@ public class ProductManageFormController {
                     );
                     pList.add(tm);
 
-                    /*txtIngredientsName.setText(ingre.getName());
-                    lblIngredientsId.setText(ingre.getId());
-                    lblQtyOnHand.setText(String.valueOf(ingre.getQtyInStock()));
-                    lblUnitPrice.setText(String.valueOf(ingre.getUnitPrice()));*/
+
                 }
             }
 
-            // Set the items in the table and update the cell value factories
             tblIngredientCart.setItems(pList);
             setCellValueFactory();
             txtIngredientsName.requestFocus();
         } else {
-            // Show an alert if the product is not found
             new Alert(Alert.AlertType.INFORMATION, "Item not found!").show();
         }
     }

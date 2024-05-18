@@ -222,7 +222,7 @@ public class SuppliersFormController {
     }
 
     public boolean isValied(){
-        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.CID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.SID, txtId)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NIC, txtNIC)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.ADDRESS, txtAddress)) return false;

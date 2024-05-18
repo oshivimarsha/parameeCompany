@@ -12,17 +12,13 @@ public class PlaceOrderRepo {
         connection.setAutoCommit(false);
 
         try {
-            System.out.println(po.getOrder());
+
             boolean isOrderSaved = OrderRepo.save(po.getOrder());
-            System.out.println(isOrderSaved);
             if (isOrderSaved) {
-                System.out.println(po.getOdList());
                 boolean isQtyUpdated = ProductRepo.update(po.getOdList());
-                System.out.println(isQtyUpdated);
+
                 if (isQtyUpdated) {
-                    System.out.println(po.getOdList());
                     boolean isOrderDetailSaved = OrderDetailRepo.save(po.getOdList());
-                    System.out.println(isOrderDetailSaved);
                     if (isOrderDetailSaved) {
                         connection.commit();
                         return true;

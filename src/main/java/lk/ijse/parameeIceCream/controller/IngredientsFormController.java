@@ -134,7 +134,7 @@ public class IngredientsFormController {
             try {
                 boolean isSaved = IngredientRepo.save(ingredient);
                 if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "employee saved!").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "ingredient saved!").show();
                     clearFields();
                     initialize();
                 }
@@ -154,6 +154,7 @@ public class IngredientsFormController {
         txtUnitPrice.setText("");
         txtPrice.setText("");
         cmbSupplierId.setValue("");
+        txtSearchHere.setText("");
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) throws SQLException {
@@ -170,7 +171,7 @@ public class IngredientsFormController {
 
         boolean isUpdated = IngredientRepo.update(ingredient);
         if(isUpdated) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Pro updated!").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "ingredient updated!").show();
             clearFields();
             initialize();
         }
@@ -181,7 +182,7 @@ public class IngredientsFormController {
 
         boolean isDeleted = IngredientRepo.delete(name);
         if(isDeleted) {
-            new Alert(Alert.AlertType.CONFIRMATION, "employee deleted!").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "ingredient deleted!").show();
             clearFields();
             initialize();
         }
@@ -258,7 +259,7 @@ public class IngredientsFormController {
     }
 
     public boolean isValied() {
-        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.CID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.IID, txtId)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.QTY, txtQtyInStock)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtPrice)) return false;

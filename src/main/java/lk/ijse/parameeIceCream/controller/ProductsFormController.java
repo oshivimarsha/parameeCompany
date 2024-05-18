@@ -243,14 +243,14 @@ public class ProductsFormController {
     }
 
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName);
+      //  Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName);
     }
 
     public boolean isValid() {
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.QTY, txtQtyAvailable)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PRICE, txtUnitPrice)) return false;
         if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.PID, txtId)) return false;
-        if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
+      //  if (!Regex.setTextColor(lk.ijse.parameeIceCream.util.TextField.NAME, txtName)) return false;
         return true;
     }
 
